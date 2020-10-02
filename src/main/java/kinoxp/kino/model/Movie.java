@@ -1,9 +1,12 @@
 package kinoxp.kino.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Movie {
 
-
+    @Id
     private int movieId;
     private String name;
     private String description; //actors will be in this
