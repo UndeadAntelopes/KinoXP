@@ -1,4 +1,4 @@
-package main.java.kinoxp.kino.model;
+package kinoxp.kino.model;
 
 
 public class Movie {

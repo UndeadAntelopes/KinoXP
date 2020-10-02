@@ -17,7 +17,7 @@ public class MovieRepsository {
     
     public Movie updateMovie(Movie movie) {
         String sql = "UPDATE vehicle SET movieId = ?, name = ?, description = ?, year = ?, cat_id = ?, WHERE reg_number = ?";
-        template.update(sql, movie.getMovieId(), movie.getDescription(), movie.getYear(), movie.getCat_id());
+        template.update(sql, movie.getMovieId(), movie.getDescription(), movie.getYear(), movie.getCategory());
         return null;
     }
 }
