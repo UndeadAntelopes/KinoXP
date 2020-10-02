@@ -19,7 +19,7 @@ public class MovieController {
 
     @GetMapping ("/add")
     public String add() {
-        return "/home/add";
+        return "/add";
     }
 
     @PostMapping ("/add")
