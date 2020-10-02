@@ -13,15 +13,15 @@ import java.util.List;
 public class MovieRepository {
     @Autowired
     JdbcTemplate template;
-
+    
     public Boolean deleteMovie(String movieId) {
         String sql = "DELETE FROM vehicle WHERE reg_number = ?";
         return template.update(sql, movieId) < 0;
     }
-
+    
     public Movie updateMovie(Movie movie) {
         String sql = "UPDATE vehicle SET movieId = ?, name = ?, description = ?, year = ?, cat_id = ?, WHERE reg_number = ?";
-        template.update(sql, movie.getRegNumber(), vehicle.getCatId(), vehicle.getYearStmp(), vehicle.getOdometer(), vehicle.getTransmission(), vehicle.getFuelType(), vehicle.isOperational(), vehicle.getoComment(), vehicle.getRegNumber());
+        template.update(sql, movie.getMovieId(), movie.getDescription(), movie.getYear(), movie.getCategory());
         return null;
     }
 
