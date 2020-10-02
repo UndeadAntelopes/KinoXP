@@ -11,7 +11,16 @@ public class Movie {
     private String name;
     private String description; //actors will be in this
     private Duration duration;
-    private String category;
+    
+    public String getGenres_id() {
+        return genres_id;
+    }
+    
+    public void setGenres_id(String genres_id) {
+        this.genres_id = genres_id;
+    }
+    
+    private String genres_id;
     private int year;
     private int ageLimit;
     
@@ -38,7 +47,7 @@ public class Movie {
         this.movieId = movieId;
         this.name = name;
         this.description = description;
-        this.category = category;
+        this.genres_id = genres_id;
         this.year = year;
         this.ageLimit = ageLimit;
         this.duration = duration;
@@ -46,13 +55,6 @@ public class Movie {
 
 
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     public int getMovieId() {
         return movieId;
@@ -93,7 +95,7 @@ public class Movie {
                 "movieId=" + movieId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
+                ", category='" + genres_id + '\'' +
                 ", year=" + year +
                 ", ageLimit=" + ageLimit + "+" +
                 '}';

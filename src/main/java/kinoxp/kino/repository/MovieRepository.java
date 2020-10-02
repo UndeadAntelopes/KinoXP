@@ -20,8 +20,8 @@ public class MovieRepository {
     }
     
     public Movie updateMovie(Movie movie) {
-        String sql = "UPDATE vehicle SET movieId = ?, name = ?, description = ?, year = ?, cat_id = ?, WHERE reg_number = ?";
-        template.update(sql, movie.getMovieId(), movie.getDescription(), movie.getYear(), movie.getCategory());
+        String sql = "UPDATE movie SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ?, WHERE movie_id = ?";
+        template.update(sql, movie.getMovieId(), movie.getName(), movie.getDuration(), movie.getAgeLimit(), movie.getGenres_id());
         return null;
     }
 
