@@ -15,12 +15,12 @@ public class MovieRepository {
     JdbcTemplate template;
     
     public Boolean deleteMovie(int movieId) {
-        String sql = "DELETE FROM kinoxp_test WHERE movieId = ?";
+        String sql = "DELETE FROM kinoxp WHERE movieId = ?";
         return template.update(sql, movieId) < 0;
     }
     
     public Movie updateMovie(Movie movie) {
-        String sql = "UPDATE movie SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ?, WHERE movie_id = ?";
+        String sql = "UPDATE movies SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ?, WHERE movie_id = ?";
         template.update(sql, movie.getMovieId(), movie.getName(), movie.getDuration(), movie.getAgeLimit(), movie.getGenres_id());
         return null;
     }
