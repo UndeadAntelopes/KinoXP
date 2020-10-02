@@ -9,13 +9,16 @@ import java.util.List;
 
 @Service
 public class MovieService {
-@Autowired
-MovieRepository movieRepository;
+    @Autowired
+    MovieRepository movieRepository;
 
     public List<Movie> fetchAll(){
         return movieRepository.fetchAll();
     }
 
+    public Movie addMovie(Movie m) {
+        return movieRepository.addMovie(m);
+    }
     /*public void addContract(Contract contract, int customerId, String licencePlate){
         contractRepo.addContract(contract, customerId, licencePlate);
     }*/

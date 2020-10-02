@@ -13,17 +13,21 @@ import java.util.List;
 public class MovieRepository {
     @Autowired
     JdbcTemplate template;
-    
+
     public Boolean deleteMovie(String movieId) {
         String sql = "DELETE FROM vehicle WHERE reg_number = ?";
         return template.update(sql, movieId) < 0;
     }
-    
-    public Movie updateMovie(Movie movie) {
-        String sql = "UPDATE vehicle SET movieId = ?, name = ?, description = ?, year = ?, cat_id = ?, WHERE reg_number = ?";
-        template.update(sql, movie.getMovieId(), movie.getDescription(), movie.getYear(), movie.getCategory());
+
+    public Movie addMovie(Movie m) {
+        String sql = "INSERT INTO movies (movie_id, title, description, duration, age_limit, genres_id) VALUES (?, ?, ?, ?, ?, ?)";
+        template.update(sql, m.getMovieId(), m.getTitle(), m.getDescription(), m.getDuration(), m.getAge_limit(), m.getGenres_id());
         return null;
     }
+
+    /*String sql="INSERT INTO person (id, first_name, last_name) VALUES (?, ?, ?)";
+         template.update(sql, p.getId(), p.getFirst_name(), p.getLast_name());
+        return null;*/
 
 
     public List<Movie> fetchAll(){

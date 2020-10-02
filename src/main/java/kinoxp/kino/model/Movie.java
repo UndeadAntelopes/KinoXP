@@ -8,32 +8,13 @@ public class Movie {
 
     @Id
     private int movieId;
-    private String name;
-    private String description; //actors will be in this
-    private String category;
-    private int year;
-    private double rating;
+    private String title;
+    private String description;
+    private String duration; //type not certain
+    private String age_limit;
+    private int genres_id;
 
     public Movie() {
-    }
-
-    public Movie(int movieId, String name, String description, String category, int year, double rating) {
-        this.movieId = movieId;
-        this.name = name;
-        this.description = description;
-        this.category = category;
-        this.year = year;
-        this.rating = rating;
-    }
-
-
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 
     public int getMovieId() {
@@ -44,12 +25,12 @@ public class Movie {
         this.movieId = movieId;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -60,31 +41,27 @@ public class Movie {
         this.description = description;
     }
 
-    public int getYear() {
-        return year;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
-    public double getRating() {
-        return rating;
+    public String getAge_limit() {
+        return age_limit;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public void setAge_limit(String age_limit) {
+        this.age_limit = age_limit;
     }
 
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "movieId=" + movieId +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
-                ", year=" + year +
-                ", rating=" + rating +
-                '}';
+    public int getGenres_id() {
+        return genres_id;
+    }
+
+    public void setGenres_id(int genres_id) {
+        this.genres_id = genres_id;
     }
 }
