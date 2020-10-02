@@ -15,13 +15,15 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
-    @GetMapping("/");
+    @GetMapping("/movie");
     public String index (Model model){
         List<Movie> movieList = movieService.fetchAll();
         model.addAttribute("movies", movieList);
         return "home/index";
 
     }
+
+
 
 
 
