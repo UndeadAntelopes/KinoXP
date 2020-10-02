@@ -1,26 +1,47 @@
 package kinoxp.kino.model;
 
 
+import java.time.Duration;
+import java.util.Date;
+
 public class Movie {
 
 
     private int movieId;
     private String name;
     private String description; //actors will be in this
+    private Duration duration;
     private String category;
     private int year;
-    private double rating;
+    private int ageLimit;
+    
+    public Duration getDuration() {
+        return duration;
+    }
+    
+    public void setDuration(Duration duration) {
+        this.duration = duration;
+    }
+    
+    public int getAgeLimit() {
+        return ageLimit;
+    }
+    
+    public void setAgeLimit(int ageLimit) {
+        this.ageLimit = ageLimit;
+    }
 
     public Movie() {
     }
 
-    public Movie(int movieId, String name, String description, String category, int year, double rating) {
+    public Movie(int movieId, String name, String description, String category, int year, int ageLimit, Duration duration) {
         this.movieId = movieId;
         this.name = name;
         this.description = description;
         this.category = category;
         this.year = year;
-        this.rating = rating;
+        this.ageLimit = ageLimit;
+        this.duration = duration;
     }
 
 
@@ -65,13 +86,6 @@ public class Movie {
         this.year = year;
     }
 
-    public double getRating() {
-        return rating;
-    }
-
-    public void setRating(double rating) {
-        this.rating = rating;
-    }
 
     @Override
     public String toString() {
@@ -81,7 +95,7 @@ public class Movie {
                 ", description='" + description + '\'' +
                 ", category='" + category + '\'' +
                 ", year=" + year +
-                ", rating=" + rating +
+                ", ageLimit=" + ageLimit + "+" +
                 '}';
     }
 }
