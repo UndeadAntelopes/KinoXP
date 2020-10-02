@@ -1,10 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>We do be testing</title>
 </head>
 <body>
-
+<h1></h1>
+<h2></h2>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Age Limit</th>
+        <th>Genres</th>
+        <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.duration}"></td>
+        <td th:text="${movie.ageLimit}"></td>
+        <td th:text="${movie.genres}"></td>
+        <td th:text="${movie.price}"></td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <th>Duration</th>
+        <th>Age Limit</th>
+        <th>Genres</th>
+        <th>Price</th>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
