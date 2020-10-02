@@ -14,8 +14,8 @@ public class MovieRepository {
     @Autowired
     JdbcTemplate template;
     
-    public Boolean deleteMovie(String movieId) {
-        String sql = "DELETE FROM vehicle WHERE reg_number = ?";
+    public Boolean deleteMovie(int movieId) {
+        String sql = "DELETE FROM kinoxp_test WHERE movieId = ?";
         return template.update(sql, movieId) < 0;
     }
     
