@@ -1,4 +1,4 @@
-package kinoxp.kino.model;
+package main.java.kinoxp.kino.model;
 
 
 public class Movie {
@@ -7,18 +7,30 @@ public class Movie {
     private int movieId;
     private String name;
     private String description; //actors will be in this
+    private String category;
     private int year;
     private double rating;
 
     public Movie() {
     }
 
-    public Movie(int movieId, String name, String description, int year, double rating) {
+    public Movie(int movieId, String name, String description, String category, int year, double rating) {
         this.movieId = movieId;
         this.name = name;
         this.description = description;
+        this.category = category;
         this.year = year;
         this.rating = rating;
+    }
+
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getMovieId() {
@@ -67,6 +79,7 @@ public class Movie {
                 "movieId=" + movieId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
                 ", year=" + year +
                 ", rating=" + rating +
                 '}';
