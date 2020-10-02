@@ -3,6 +3,7 @@ package kinoxp.kino.model;
 
 public class Movie {
 
+
     private int movieId;
     private String name;
     private String description; //actors will be in this
