@@ -8,6 +8,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -40,5 +42,16 @@ public class MovieRepository {
         return template.query(query, rowMapper);
     }
 
+    public List<Movie> fetchCurrentMovies (ArrayList<Schedule> currentSchedule){
+        String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end " +
+        "FROM movies" +
+        "JOIN genres ON genres.genres_id = movies.genres_id" +
+        "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id" +
+        "JOIN schedule ON movies_has_schedule.schedule_schedule_id = schedule.schedule_id" +
+        "WHERE movies_movie_id IN ( "+ currentSchedule +");";
+        RowMapper<Movie> rowMapper = new BeanPropertyRowMapper<>(Movie.class);
+        return template.query(sql, rowMapper);
+
+    }
 
 }
