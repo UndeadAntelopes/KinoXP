@@ -50,6 +50,10 @@ public class MovieService {
         }
     }*/
 
+    public Movie addMovie(Movie m) {
+        return movieRepository.addMovie(m);
+    }
+
     public void updateMovie(Movie movie) {movieRepository.updateMovie(movie);}
 
     public boolean deleteMovie(int id) { return movieRepository.deleteMovie(id);}

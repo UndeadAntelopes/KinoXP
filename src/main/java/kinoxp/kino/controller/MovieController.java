@@ -49,7 +49,16 @@ public class MovieController {
         return "redirect:/movieList";
     }
 
+    @GetMapping ("/add")
+    public String add() {
+        return "/add";
+    }
 
+    @PostMapping ("/add")
+    public String add(@ModelAttribute Movie movie) {
+        movieService.addMovie(movie);
+        return "/add";
+    }
 
 
 }

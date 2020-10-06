@@ -21,6 +21,12 @@ public class MovieRepository {
         return template.update(sql, movieId) < 0;
     }
 
+    public Movie addMovie(Movie m) {
+        String sql = "INSERT INTO movies (movie_id, title, description, duration, age_limit, genres_id) VALUES (?, ?, ?, ?, ?, ?)";
+        template.update(sql, m.getMovieId(), m.getTitle(), m.getDescription(), m.getDuration(), m.getAge_limit(), m.getGenres_id());
+        return null;
+    }
+
     public Movie updateMovie(Movie movie) {
         String sql = "UPDATE movies SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ? WHERE movie_id = ?";
         template.update(sql, movie.getMovieId(), movie.getTitle(), movie.getDuration(), movie.getAgeLimit(), movie.getGenre());
@@ -41,13 +47,13 @@ public class MovieRepository {
         return template.query(query, rowMapper);
     }
 
-    public List<Movie> fetchCurrentMovies (ArrayList<Schedule> currentSchedule){
+    public List<Movie> fetchCurrentMovies (ArrayList<Schedule> currentSchedule) {
         String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end " +
-        "FROM movies " +
-        "JOIN genres ON genres.genres_id = movies.genres_id " +
-        "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id " +
-        "JOIN schedule ON movies_has_schedule.schedule_schedule_id = schedule.schedule_id " +
-        "WHERE movies_movie_id IN ( "+ currentSchedule +");";
+                "FROM movies " +
+                "JOIN genres ON genres.genres_id = movies.genres_id " +
+                "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id " +
+                "JOIN schedule ON movies_has_schedule.schedule_schedule_id = schedule.schedule_id " +
+                "WHERE movies_movie_id IN ( " + currentSchedule + ");";
         RowMapper<Movie> rowMapper = new BeanPropertyRowMapper<>(Movie.class);
         return template.query(sql, rowMapper);
 
