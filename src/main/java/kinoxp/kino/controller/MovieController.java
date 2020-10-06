@@ -51,7 +51,7 @@ public class MovieController {
 
     @GetMapping ("/add")
     public String add() {
-        return "/add";
+        return "add";
     }
 
     @PostMapping ("/add")
