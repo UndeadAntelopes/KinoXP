@@ -17,7 +17,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="kino" />
+          <factory-entry name="kino" value="d5f6a8ce-44b4-4c4c-aa38-5733f39eb717" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
