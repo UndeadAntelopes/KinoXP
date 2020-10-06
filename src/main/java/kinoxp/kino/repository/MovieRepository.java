@@ -30,7 +30,7 @@ public class MovieRepository {
 
     public List<Movie> fetchAll(){
         String sql = "SELECT * " +
-                "FROM kino.Movies;"; //ask for confirmation
+                "FROM kinoxp.Movies;"; //ask for confirmation
         RowMapper<Movie> rowMapper= new BeanPropertyRowMapper<>(Movie.class);
         return template.query(sql,rowMapper);
     }

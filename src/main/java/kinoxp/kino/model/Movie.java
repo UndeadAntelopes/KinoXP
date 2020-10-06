@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public class Movie {
     @Id
     private int movieId;
-    private String name;
+    private String title;
     private String description; //actors will be in this
-    private String category;
+    private String genre;
     private int year;
     private double rating;
     private ArrayList<Schedule> schedules;
@@ -20,22 +20,22 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String name, String description, String category, int year, double rating, ArrayList<Schedule> schedules) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, ArrayList<Schedule> schedules) {
         this.movieId = movieId;
-        this.name = name;
+        this.title = title;
         this.description = description;
-        this.category = category;
+        this.genre = genre;
         this.year = year;
         this.rating = rating;
         this.schedules = schedules;
     }
 
-    public String getCategory() {
-        return category;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setGenre(String category) {
+        this.genre = category;
     }
 
     public int getMovieId() {
@@ -46,12 +46,12 @@ public class Movie {
         this.movieId = movieId;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     public String getDescription() {
@@ -90,9 +90,9 @@ public class Movie {
     public String toString() {
         return "Movie{" +
                 "movieId=" + movieId +
-                ", name='" + name + '\'' +
+                ", name='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", category='" + category + '\'' +
+                ", category='" + genre + '\'' +
                 ", year=" + year +
                 ", rating=" + rating +
                 ", schedules=" + schedules +
