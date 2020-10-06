@@ -2,8 +2,8 @@ package kinoxp.kino.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
 public class Movie {
@@ -15,14 +15,14 @@ public class Movie {
     private int year;
     private double rating;
     private ArrayList<Schedule> schedules;
-    private Duration duration;
+    private Date duration;
     private int ageLimit;
 
 
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, ArrayList<Schedule> schedules, Duration duration, int ageLimit) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, ArrayList<Schedule> schedules, Date duration, int ageLimit) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
@@ -90,11 +90,11 @@ public class Movie {
         this.schedules = schedules;
     }
 
-    public Duration getDuration() {
+    public Date getDuration() {
         return duration;
     }
 
-    public void setDuration(Duration duration) {
+    public void setDuration(Date duration) {
         this.duration = duration;
     }
 
