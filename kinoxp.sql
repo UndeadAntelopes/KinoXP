@@ -64,13 +64,13 @@ CREATE TABLE IF NOT EXISTS `kinoxp`.`movies_has_schedule` (
                                                               CONSTRAINT `fk_movies_has_schedule_movies`
                                                                   FOREIGN KEY (`movies_movie_id`)
                                                                       REFERENCES `kinoxp`.`movies` (`movie_id`)
-                                                                      ON DELETE NO ACTION
-                                                                      ON UPDATE NO ACTION,
+                                                                      ON DELETE CASCADE
+                                                                      ON UPDATE CASCADE,
                                                               CONSTRAINT `fk_movies_has_schedule_schedule1`
                                                                   FOREIGN KEY (`schedule_schedule_id`)
                                                                       REFERENCES `kinoxp`.`schedule` (`schedule_id`)
-                                                                      ON DELETE NO ACTION
-                                                                      ON UPDATE NO ACTION)
+                                                                      ON DELETE CASCADE
+                                                                      ON UPDATE CASCADE )
     ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;

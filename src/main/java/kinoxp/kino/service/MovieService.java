@@ -1,15 +1,10 @@
 package kinoxp.kino.service;
 
 import kinoxp.kino.model.Movie;
-import kinoxp.kino.model.Schedule;
 import kinoxp.kino.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,16 +18,16 @@ public class MovieService {
     }
 
 
-    public ArrayList<Movie> fetchCurrentMovies() {
+   /* public ArrayList<Movie> fetchCurrentMovies() {
         //Store all movies in a list
-        ArrayList<Movie> currentMovies = (ArrayList<Movie>)repo.fetchAll();
+        ArrayList<Movie> currentMovies = (ArrayList<Movie>)movieRepository.fetchAll();
 
         //Store current time and declare a parser
         DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
         LocalDateTime today = LocalDateTime.now();
 
         //Retrieve all schedules from the database
-        ArrayList<Schedule> schedules = (ArrayList<Schedule>)repo.fetchSchedule();
+        ArrayList<Schedule> schedules = (ArrayList<Schedule>)movieRepository.fetchSchedule();
 
 
         //Loop to filter schedules for only currently showing movies
@@ -53,7 +48,7 @@ public class MovieService {
                 numbers += ", ";
             }
         }
-    }
+    }*/
 
     public void updateMovie(Movie movie) {movieRepository.updateMovie(movie);}
 

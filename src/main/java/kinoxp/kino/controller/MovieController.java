@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import java.util.List;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class MovieController {
@@ -25,7 +25,7 @@ public class MovieController {
 
         model.addAttribute("movies", movies);
 
-        return "MovieList.html";
+        return "movieList";
     }
 
     //show update movie form
@@ -40,13 +40,13 @@ public class MovieController {
     @PostMapping("/updateMovie/{id}")
     public String updateMovie(@ModelAttribute Movie movie, @PathVariable("id") int id){
         movieService.updateMovie(movie);
-        return "redirect:/viewMovies";
+        return "redirect:/movieList";
     }
 
-    @GetMapping("/deleteRenter/{id}")
-    public String deleteRenter(@PathVariable("id") int id, Model model) {
+    @GetMapping("/deleteMovie/{id}")
+    public String deleteMovie(@PathVariable("id") int id, Model model) {
         movieService.deleteMovie(id);
-        return "redirect:/viewMovies";
+        return "redirect:/movieList";
     }
 
 
