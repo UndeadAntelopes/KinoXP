@@ -1,10 +1,10 @@
 package kinoxp.kino.service;
 
+import kinoxp.kino.model.Movie;
 import kinoxp.kino.model.Schedule;
 import kinoxp.kino.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import main.java.kinoxp.kino.model.Movie;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,11 +21,16 @@ public class MovieService {
         return repo.fetchAll();
     }
 
-    /*
+
     public ArrayList<Movie> fetchCurrentMovies() {
+        //Store all movies in a list
         ArrayList<Movie> currentMovies = (ArrayList<Movie>)repo.fetchAll();
+
+        //Store current time and declare a parser
         DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
         LocalDateTime today = LocalDateTime.now();
+
+        //Retrieve all schedules from the database
         ArrayList<Schedule> schedules = (ArrayList<Schedule>)repo.fetchSchedule();
 
 
@@ -39,15 +44,14 @@ public class MovieService {
             }
         }
 
-        for (int i )
+        //Extract list of schedules for the query
+        String numbers = "";
+        for (int i = 0; i < schedules.size(); ++i) {
+            numbers += schedules.get(i);
+            if (i != schedules.size() - 1) {
+                numbers += ", ";
+            }
+        }
     }
-    
-    @Autowired
-    MovieRepository movieRepository;
-
-    public void updateMovie(Movie movie) {movieRepository.updateMovie(movie);}
-
-    public boolean deleteMovie(int id) { return movieRepository.deleteMovie(id);}
-    */
 
 }

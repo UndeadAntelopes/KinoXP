@@ -1,12 +1,12 @@
 package kinoxp.kino.repository;
 
+import kinoxp.kino.model.Movie;
 import kinoxp.kino.model.Schedule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-import main.java.kinoxp.kino.model.Movie;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
