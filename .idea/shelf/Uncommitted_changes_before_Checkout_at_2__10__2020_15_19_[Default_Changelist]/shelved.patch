@@ -1,0 +1,46 @@
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"dataSourceStorageLocal\">\r\n    <data-source name=\"@localhost\" uuid=\"c6868e76-73ce-43aa-b83c-69a027c5b4ec\">\r\n      <database-info product=\"\" version=\"\" jdbc-version=\"\" driver-name=\"\" driver-version=\"\" dbms=\"MYSQL\" exact-version=\"0\" />\r\n      <secret-storage>forget</secret-storage>\r\n      <schema-mapping />\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dataSources.local.xml	(revision a2465f0b8a5d53c143127a4072363a72024c1163)
++++ .idea/dataSources.local.xml	(date 1601644446536)
+@@ -2,8 +2,13 @@
+ <project version="4">
+   <component name="dataSourceStorageLocal">
+     <data-source name="@localhost" uuid="c6868e76-73ce-43aa-b83c-69a027c5b4ec">
+-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
++      <database-info product="MySQL" version="8.0.19" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)" dbms="MYSQL" exact-version="8.0.19" exact-driver-version="8.0">
++        <extra-name-characters>#@</extra-name-characters>
++        <identifier-quote-string>`</identifier-quote-string>
++      </database-info>
++      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+       <secret-storage>forget</secret-storage>
++      <user-name>kino</user-name>
+       <schema-mapping />
+     </data-source>
+   </component>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" project-jdk-name=\"11.0.5\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision a2465f0b8a5d53c143127a4072363a72024c1163)
++++ .idea/misc.xml	(date 1601644618580)
+@@ -1,11 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11.0.5" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
