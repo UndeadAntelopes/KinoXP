@@ -41,5 +41,13 @@ public class MovieService {
 
         for (int i )
     }
+    
+    @Autowired
+    MovieRepository movieRepository;
+
+    public void updateMovie(Movie movie) {movieRepository.updateMovie(movie);}
+
+    public boolean deleteMovie(int id) { return movieRepository.deleteMovie(id);}
     */
+
 }

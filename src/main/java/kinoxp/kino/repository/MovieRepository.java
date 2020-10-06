@@ -15,18 +15,18 @@ import java.util.List;
 public class MovieRepository {
     @Autowired
     JdbcTemplate template;
-
-    public Boolean deleteMovie(String movieId) {
-        String sql = "DELETE FROM vehicle WHERE reg_number = ?";
+    
+    public Boolean deleteMovie(int movieId) {
+        String sql = "DELETE FROM kinoxp WHERE movieId = ?";
         return template.update(sql, movieId) < 0;
     }
-    /*
+
     public Movie updateMovie(Movie movie) {
-        String sql = "UPDATE vehicle SET movieId = ?, name = ?, description = ?, year = ?, cat_id = ?, WHERE reg_number = ?";
-        template.update(sql, movie.getRegNumber(), vehicle.getCatId(), vehicle.getYearStmp(), vehicle.getOdometer(), vehicle.getTransmission(), vehicle.getFuelType(), vehicle.isOperational(), vehicle.getoComment(), vehicle.getRegNumber());
+        String sql = "UPDATE movies SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ?, WHERE movie_id = ?";
+        template.update(sql, movie.getMovieId(), movie.getName(), movie.getDuration(), movie.getAgeLimit(), movie.getGenres_id());
         return null;
     }
-    */
+    
 
     public List<Movie> fetchAll(){
         String sql = "SELECT * " +
