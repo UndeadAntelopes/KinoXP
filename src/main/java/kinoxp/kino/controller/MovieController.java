@@ -1,11 +1,13 @@
 package kinoxp.kino.controller;
 
+import kinoxp.kino.model.Movie;
 import kinoxp.kino.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import main.java.kinoxp.kino.model.Movie;
+
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,9 +25,16 @@ public class MovieController {
         List<Movie> movies = movieService.fetchAll();
 
         model.addAttribute("movies", movies);
-
         return "MovieList.html";
+    }
 
+    @GetMapping("/currentlyShowing")
+    public String displayCurrentMovies(Model model) {
+        ArrayList<Movie> movies = movieService.fetchCurrentMovies();
+        model.addAttribute("movies", movies);
+        return "MovieList.html";
+    }
+    /*
     //show update movie form
     @GetMapping("/updateMovie/{id}")
     public String updateMovie(@PathVariable("id") int id, Model model){
@@ -46,6 +55,7 @@ public class MovieController {
         movieService.deleteMovie(id);
         return "redirect:/viewMovies";
     }
+    */
 
 
 

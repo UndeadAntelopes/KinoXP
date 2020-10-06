@@ -12,19 +12,28 @@
     <tr>
         <th>Title</th>
         <th>Genre</th>
+        <th>Age Limit</th>
+        <th>Description</th>
+        <th>Movie Start</th>
+        <th>Movie End</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="movie : ${movies}">
         <td th:text="${movie.title}"></td>
         <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.ageLimit}"></td>
+        <td th:text="${movie.description}"></td>
+        <td th:text="${movie.start}"></td>
+        <td th:text="${movie.end}"></td>
     </tr>
     <tr>
         <th>Title</th>
-        <th>Duration</th>
+        <th>Genre</th>
         <th>Age Limit</th>
-        <th>Genres</th>
-        <th>Price</th>
+        <th>Description</th>
+        <th>Movie Start</th>
+        <th>Movie End</th>
     </tr>
     </tbody>
 </table>
