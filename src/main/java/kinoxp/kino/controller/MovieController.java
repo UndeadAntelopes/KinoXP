@@ -25,7 +25,7 @@ public class MovieController {
     @PostMapping ("/add")
     public String add(@ModelAttribute Movie movie) {
         movieService.addMovie(movie);
-        return "redirect:/";
+        return "/add";
     }
 
 
