@@ -1,9 +1,9 @@
 package kinoxp.kino.model;
 
-import kinoxp.kino.model.Schedule;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.Date;
 
 @Entity
 public class Movie {
@@ -11,28 +11,26 @@ public class Movie {
     private int movieId;
     private String title;
     private String description; //actors will be in this
-
     private String genre;
     private int year;
     private double rating;
-    private String start;
-    private String end;
-    private String ageLimit;
+    private ArrayList<Schedule> schedules;
+    private Date duration;
+    private int ageLimit;
 
 
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, String start, String end, String ageLimit) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, ArrayList<Schedule> schedules, Date duration, int ageLimit) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
-
         this.genre = genre;
         this.year = year;
         this.rating = rating;
-        this.start = start;
-        this.end = end;
+        this.schedules = schedules;
+        this.duration = duration;
         this.ageLimit = ageLimit;
     }
 
@@ -56,8 +54,8 @@ public class Movie {
         return title;
     }
 
-    public void setTitle(String name) {
-        this.title = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -68,6 +66,14 @@ public class Movie {
         this.description = description;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
     public int getYear() {
         return year;
     }
@@ -76,28 +82,35 @@ public class Movie {
         this.year = year;
     }
 
+    public double getRating() {
+        return rating;
+    }
 
     public void setRating(double rating) {
         this.rating = rating;
     }
 
-    public String getStart() {return this.start;}
-
-    public void setStart(String start) {this.start = start;}
-
-    public String getEnd() {
-        return end;
+    public ArrayList<Schedule> getSchedules() {
+        return schedules;
     }
 
-    public void setEnd(String end) {
-        this.end = end;
+    public void setSchedules(ArrayList<Schedule> schedules) {
+        this.schedules = schedules;
     }
 
-    public String getAgeLimit() {
+    public Date getDuration() {
+        return duration;
+    }
+
+    public void setDuration(Date duration) {
+        this.duration = duration;
+    }
+
+    public int getAgeLimit() {
         return ageLimit;
     }
 
-    public void setAgeLimit(String ageLimit) {
+    public void setAgeLimit(int ageLimit) {
         this.ageLimit = ageLimit;
     }
 
@@ -110,8 +123,9 @@ public class Movie {
                 ", genre='" + genre + '\'' +
                 ", year=" + year +
                 ", rating=" + rating +
-                ", start='" + start + '\'' +
-                ", end='" + end + '\'' +
+                ", schedules=" + schedules +
+                ", duration=" + duration +
+                ", ageLimit=" + ageLimit +
                 '}';
     }
 }

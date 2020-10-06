@@ -6,12 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class MovieController {
@@ -38,8 +39,8 @@ public class MovieController {
     //show update movie form
     @GetMapping("/updateMovie/{id}")
     public String updateMovie(@PathVariable("id") int id, Model model){
-        model.addAttribute("movie",movieService.findMovieById(id));
-        model.addAttribute("categories",categoryService.showCountriesList());
+        //model.addAttribute("movie",movieService.findMovieById(id));
+        //model.addAttribute("categories",categoryService.showCountriesList());
         return "updateMovie";
     }
 
@@ -47,17 +48,26 @@ public class MovieController {
     @PostMapping("/updateMovie/{id}")
     public String updateMovie(@ModelAttribute Movie movie, @PathVariable("id") int id){
         movieService.updateMovie(movie);
-        return "redirect:/viewMovies";
+        return "redirect:/movieList";
     }
 
-    @GetMapping("/deleteRenter/{id}")
-    public String deleteRenter(@PathVariable("id") int id, Model model) {
+    @GetMapping("/deleteMovie/{id}")
+    public String deleteMovie(@PathVariable("id") int id, Model model) {
         movieService.deleteMovie(id);
-        return "redirect:/viewMovies";
+        return "redirect:/movieList";
     }
     */
 
+    @GetMapping ("/add")
+    public String add() {
+        return "add";
+    }
 
+    @PostMapping ("/add")
+    public String add(@ModelAttribute Movie movie) {
+        movieService.addMovie(movie);
+        return "/add";
+    }
 
 
 }

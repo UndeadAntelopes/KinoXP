@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,18 +15,23 @@ import java.util.List;
 public class MovieRepository {
     @Autowired
     JdbcTemplate template;
-    /*
+
     public Boolean deleteMovie(int movieId) {
-        String sql = "DELETE FROM kinoxp WHERE movieId = ?";
+        String sql = "DELETE FROM movies WHERE movie_id = ?";
         return template.update(sql, movieId) < 0;
     }
 
-    public Movie updateMovie(Movie movie) {
-        String sql = "UPDATE movies SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ?, WHERE movie_id = ?";
-        template.update(sql, movie.getMovieId(), movie.getName(), movie.getDuration(), movie.getAgeLimit(), movie.getGenres_id());
+    public Movie addMovie(Movie m) {
+        String sql = "INSERT INTO movies (movie_id, title, description, duration, age_limit, genres_id) VALUES (?, ?, ?, ?, ?, ?)";
+        template.update(sql, m.getMovieId(), m.getTitle(), m.getDescription(), m.getDuration(), m.getAgeLimit(), m.getGenre());
         return null;
     }
-    */
+
+    public Movie updateMovie(Movie movie) {
+        String sql = "UPDATE movies SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ? WHERE movie_id = ?";
+        template.update(sql, movie.getMovieId(), movie.getTitle(), movie.getDuration(), movie.getAgeLimit(), movie.getGenre());
+        return null;
+    }
 
     public List<Movie> fetchAll(){
         String sql = "SELECT * " +
