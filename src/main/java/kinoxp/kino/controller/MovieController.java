@@ -21,6 +21,11 @@ public class MovieController {
     @Autowired
     MovieService movieService;
 
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
+
     @GetMapping("/movieList")
     public String displayAllMovies(Model model) {
         List<Movie> movies = movieService.fetchAll();

@@ -1,0 +1,38 @@
+<div th:fragment="menu_template" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="navigation">
+        <nav class="flex-container" id="menu">
+
+            <!-- Home tab menu link           -->
+            <a href="/" class="menu_link" title="Main menu" id="home">
+                <img src="http://localhost:8080/SVG/home-solid.svg" class="svg menu_icons" height="20" width="20">
+                <br>
+                <button class="menu_item" title="Main menu"><strong>Home</strong></button>
+            </a>
+
+            <!-- Add Movies menu link           -->
+            <a href="/add" class="menu_link" title="Add a Movie" id="addMov">
+                <img src="http://localhost:8080/SVG/bus-solid.svg" class="svg menu_icons" height="20" width="20">
+                <br>
+                <button class="menu_item" title="Add a Movie"><strong>Add a Movie</strong></button>
+            </a>
+
+            <!-- View movies menu link           -->
+            <a href="/movieList" class="menu_link" title="List of Movies" id="movList">
+                <img src="http://localhost:8080/SVG/user-friends-solid.svg" class="svg menu_icons" height="20" width="20">
+                <br>
+                <button class="menu_item" title="List of Movies"><strong>List of Movies</strong></button>
+            </a>
+        </nav>
+    </div>
+
+    <div>
+        <a href="/" id="banner"><img src="http://localhost:8080/image/banner.png" height="90"></a>
+    </div>
+
+    <div id="logout">
+        <a href="/logout" class="menu_link">
+            <button class="logout"><strong>LOG OUT</strong> </button>
+            <img src="http://localhost:8080/SVG/sign-out-alt-solid.svg" class="svg logout_button" height="30" width="30">
+        </a>
+    </div>
+</div>
