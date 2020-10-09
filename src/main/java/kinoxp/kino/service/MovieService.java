@@ -22,7 +22,7 @@ public class MovieService {
     }
     public ArrayList<Schedule> allSchedules() {
         //Retrieve all schedules from the database
-        ArrayList<Schedule> schedules = (ArrayList<Schedule>) repo.fetchSchedule();
+        ArrayList<Schedule> schedules = (ArrayList<Schedule>) movieRepository.fetchSchedule();
         return schedules;
     }
     public ArrayList<Movie> fetchCurrentMovies() {
@@ -37,7 +37,8 @@ public class MovieService {
             }
         }
 
-        return (ArrayList<Movie>) repo.fetchCurrentMovies(numbers);
+        return (ArrayList<Movie>) movieRepository.fetchCurrentMovies(numbers);
+    }
 
     public Movie addMovie(Movie m) {
         return movieRepository.addMovie(m);

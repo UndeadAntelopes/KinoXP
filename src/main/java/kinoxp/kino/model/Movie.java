@@ -68,14 +68,6 @@ public class Movie {
         this.description = description;
     }
 
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
     public int getYear() {
         return year;
     }
