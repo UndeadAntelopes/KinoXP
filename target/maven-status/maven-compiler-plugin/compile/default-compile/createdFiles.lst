@@ -1,1 +1,6 @@
+kinoxp\kino\KinoApplication.class
+kinoxp\kino\service\MovieService.class
 kinoxp\kino\model\Movie.class
+kinoxp\kino\repository\MovieRepository.class
+kinoxp\kino\controller\MovieController.class
+kinoxp\kino\model\Schedule.class

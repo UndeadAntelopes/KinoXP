@@ -2,7 +2,6 @@ package kinoxp.kino.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -14,8 +13,8 @@ public class Movie {
     private String genre;
     private int year;
     private double rating;
-    private String duration;
-    private String ageLimit;
+    private Date duration;
+    private int ageLimit;
     private String start;
     private String end;
 
@@ -23,7 +22,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, String duration, String ageLimit, String start, String end) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, Date duration, int ageLimit, String start, String end) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
@@ -84,19 +83,19 @@ public class Movie {
         this.rating = rating;
     }
 
-    public String getDuration() {
+    public Date getDuration() {
         return duration;
     }
 
-    public void setDuration(String duration) {
+    public void setDuration(Date duration) {
         this.duration = duration;
     }
 
-    public String getAgeLimit() {
+    public int getAgeLimit() {
         return ageLimit;
     }
 
-    public void setAgeLimit(String ageLimit) {
+    public void setAgeLimit(int ageLimit) {
         this.ageLimit = ageLimit;
     }
 
