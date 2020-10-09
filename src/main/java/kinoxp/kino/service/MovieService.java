@@ -69,5 +69,10 @@ public class MovieService {
 
     public boolean deleteMovie(int id) { return movieRepository.deleteMovie(id);}
 
+    public Movie findMovieById(int id) {
+        return movieRepository.findMovieById(id);
+    }
+
+
 
 }

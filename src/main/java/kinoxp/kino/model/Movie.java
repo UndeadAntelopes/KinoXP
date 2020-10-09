@@ -2,6 +2,8 @@ package kinoxp.kino.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Time;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
@@ -13,7 +15,7 @@ public class Movie {
     private String genre;
     private int year;
     private double rating;
-    private Date duration;
+    private String duration;
     private int ageLimit;
     private String start;
     private String end;
@@ -22,14 +24,19 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, Date duration, int ageLimit, String start, String end) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, String duration, int ageLimit, String start, String end) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
         this.genre = genre;
         this.year = year;
         this.rating = rating;
-        this.duration = duration;
+        //this.duration = duration;
+        if (duration.length()==5){
+            this.duration = duration + ":00";
+        } else {
+            this.duration = duration;
+        }
         this.ageLimit = ageLimit;
         this.start = start;
         this.end = end;
@@ -83,12 +90,16 @@ public class Movie {
         this.rating = rating;
     }
 
-    public Date getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
-        this.duration = duration;
+    public void setDuration(String duration) {
+        if (duration.length()==5){
+            this.duration = duration + ":00";
+        } else {
+            this.duration = duration;
+        }
     }
 
     public int getAgeLimit() {
