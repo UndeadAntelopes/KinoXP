@@ -54,8 +54,10 @@ public class MovieService {
             //Loop to filter schedules for only currently showing movies
             int currentMonth = today.getMonthValue();
             for (int i = 0; i < schedules.size(); ++i) {
+                //Isolate month from DateTime string
                 int month = Integer.parseInt(schedules.get(i).getStart().substring(5, 7));
 
+                //
                 if (!(month >= currentMonth && month < (currentMonth + 3))) {
                     schedules.remove(i);
                 }
