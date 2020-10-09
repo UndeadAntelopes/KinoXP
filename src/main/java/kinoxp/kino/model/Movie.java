@@ -22,7 +22,7 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, String duration, String ageLimit, String start, String end) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, Date duration, int ageLimit, String start, String end) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
