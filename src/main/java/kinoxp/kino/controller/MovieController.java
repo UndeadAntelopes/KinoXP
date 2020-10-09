@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,7 +20,6 @@ public class MovieController {
 
     @Autowired
     MovieService movieService;
-
 
     @GetMapping("/movieList")
     public String displayAllMovies(Model model) {

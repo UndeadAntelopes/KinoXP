@@ -22,8 +22,8 @@ public class MovieRepository {
     }
 
     public Movie addMovie(Movie m) {
-        String sql = "INSERT INTO movies (movie_id, title, description, duration, age_limit, genres_id) VALUES (?, ?, ?, ?, ?, ?)";
-        template.update(sql, m.getMovieId(), m.getTitle(), m.getDescription(), m.getDuration(), m.getAgeLimit(), m.getGenre());
+        String sql = "INSERT INTO movies (title, description, duration, age_limit, genres_id) VALUES (?, ?, ?, ?, ?)";
+        template.update(sql, m.getTitle(), m.getDescription(), m.getDuration(), m.getAgeLimit(), m.getGenre());
         return null;
     }
 

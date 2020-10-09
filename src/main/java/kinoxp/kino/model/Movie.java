@@ -14,24 +14,26 @@ public class Movie {
     private String genre;
     private int year;
     private double rating;
-    private ArrayList<Schedule> schedules;
-    private Date duration;
-    private int ageLimit;
+    private String duration;
+    private String ageLimit;
+    private String start;
+    private String end;
 
 
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, ArrayList<Schedule> schedules, Date duration, int ageLimit) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, String duration, String ageLimit, String start, String end) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
         this.genre = genre;
         this.year = year;
         this.rating = rating;
-        this.schedules = schedules;
         this.duration = duration;
         this.ageLimit = ageLimit;
+        this.start = start;
+        this.end = end;
     }
 
     public String getGenre() {
@@ -90,28 +92,36 @@ public class Movie {
         this.rating = rating;
     }
 
-    public ArrayList<Schedule> getSchedules() {
-        return schedules;
-    }
-
-    public void setSchedules(ArrayList<Schedule> schedules) {
-        this.schedules = schedules;
-    }
-
-    public Date getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
-    public int getAgeLimit() {
+    public String getAgeLimit() {
         return ageLimit;
     }
 
-    public void setAgeLimit(int ageLimit) {
+    public void setAgeLimit(String ageLimit) {
         this.ageLimit = ageLimit;
+    }
+
+    public String getStart() {
+        return start;
+    }
+
+    public void setStart(String start) {
+        this.start = start;
+    }
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
     }
 
     @Override
@@ -123,9 +133,10 @@ public class Movie {
                 ", genre='" + genre + '\'' +
                 ", year=" + year +
                 ", rating=" + rating +
-                ", schedules=" + schedules +
                 ", duration=" + duration +
-                ", ageLimit=" + ageLimit +
+                ", ageLimit='" + ageLimit + '\'' +
+                ", start='" + start + '\'' +
+                ", end='" + end + '\'' +
                 '}';
     }
 }
