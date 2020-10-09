@@ -28,8 +28,8 @@ public class MovieRepository {
     }
 
     public Movie updateMovie(Movie movie) {
-        String sql = "UPDATE movies SET movie_id = ?, title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ? WHERE movie_id = ?";
-        template.update(sql, movie.getMovieId(), movie.getTitle(), movie.getDuration(), movie.getAgeLimit(), movie.getGenre());
+        String sql = "UPDATE movies SET title = ?, description = ?, duration = ?, age_limit = ?, genres_id = ? WHERE movie_id = ?";
+        template.update(sql, movie.getTitle(), movie.getDescription(), movie.getDuration(), movie.getAgeLimit(), movie.getGenre(), movie.getMovieId());
         return null;
     }
 
@@ -57,6 +57,13 @@ public class MovieRepository {
         RowMapper<Movie> rowMapper = new BeanPropertyRowMapper<>(Movie.class);
         return template.query(sql, rowMapper);
 
+    }
+
+    public Movie findMovieById(int id){
+        String sql = "SELECT * " +
+                "FROM kinoxp.Movies WHERE movie_id = ?"; //ask for confirmation
+        RowMapper<Movie> rowMapper= new BeanPropertyRowMapper<>(Movie.class);
+        return template.queryForObject(sql, rowMapper, id);
     }
 
 }

@@ -40,11 +40,11 @@ public class MovieController {
         model.addAttribute("movies", movies);
         return "MovieList.html";
     }
-    /*
+
     //show update movie form
     @GetMapping("/updateMovie/{id}")
     public String updateMovie(@PathVariable("id") int id, Model model){
-        //model.addAttribute("movie",movieService.findMovieById(id));
+        model.addAttribute("movie",movieService.findMovieById(id));
         //model.addAttribute("categories",categoryService.showCountriesList());
         return "updateMovie";
     }
@@ -52,6 +52,7 @@ public class MovieController {
     //update movie information
     @PostMapping("/updateMovie/{id}")
     public String updateMovie(@ModelAttribute Movie movie, @PathVariable("id") int id){
+        movie.setMovieId(id);
         movieService.updateMovie(movie);
         return "redirect:/movieList";
     }
@@ -61,7 +62,7 @@ public class MovieController {
         movieService.deleteMovie(id);
         return "redirect:/movieList";
     }
-    */
+
 
     @GetMapping ("/add")
     public String add() {
@@ -71,7 +72,7 @@ public class MovieController {
     @PostMapping ("/add")
     public String add(@ModelAttribute Movie movie) {
         movieService.addMovie(movie);
-        return "/add";
+        return "redirect:/movieList";
     }
 
 
