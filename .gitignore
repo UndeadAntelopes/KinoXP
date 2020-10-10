@@ -1,8 +1,6 @@
 
 .idea/dataSources.local.xml
 
-*.xml
-
 *.class
 
 *.iml
