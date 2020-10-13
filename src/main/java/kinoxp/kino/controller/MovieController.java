@@ -40,7 +40,14 @@ public class MovieController {
         model.addAttribute("movies", movies);
         return "MovieList.html";
     }
-
+    @GetMapping("/currentlyShowing/{ordered}")
+    public String displayOrderedCurrentMovies(Model model) {
+        ArrayList<Movie> unorderedMovies = movieService.fetchCurrentMovies();
+        ArrayList<Movie> movies = movieService.sortByGenre(unorderedMovies);
+        model.addAttribute("movies", movies);
+        return "MovieList.html";
+    }
+    /*
     //show update movie form
     @GetMapping("/updateMovie/{id}")
     public String updateMovie(@PathVariable("id") int id, Model model){

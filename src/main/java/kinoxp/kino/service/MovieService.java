@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -38,6 +40,11 @@ public class MovieService {
         }
 
         return (ArrayList<Movie>) movieRepository.fetchCurrentMovies(numbers);
+    }
+
+    public ArrayList<Movie> sortByGenre (ArrayList<Movie> unorderedList ){ //method for ordering current movies and all movies by genre
+        Collections.sort(unorderedList); //compare to method
+        return unorderedList;
     }
 
     public Movie addMovie(Movie m) {

@@ -7,7 +7,7 @@ import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
-public class Movie {
+public class Movie implements Comparable<Movie> {
     @Id
     private int movieId;
     private String title;
@@ -124,6 +124,10 @@ public class Movie {
 
     public void setEnd(String end) {
         this.end = end;
+    }
+
+    public int compareTo(Movie movie2){
+        return this.getGenre().compareTo(movie2.getGenre());
     }
 
     @Override
