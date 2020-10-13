@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Extras</title>
+</head>
+<body>
+
+<h1>Update Extras</h1>
+<form th:action="@{'/updateExtras/'+${extras.id}}" method="post">
+
+    <label>Extras ID</label>
+    <input type="text" name="id" disabled th:value="${extras.id}" >
+    <br>
+        <label>Extras Name</label>
+        <input type="text" name="name" th:value="${extras.name}">
+        <br>
+        <label>Enter Price</label>
+        <input type="number" step=".01" min="0" name="price" th:value="${extras.price}">
+        <br>
+        <label>Enter Stock Left</label>
+        <input type="number" name="stock" min="0" th:value="${extras.stock}">
+        <br>
+        <input type="submit" value="Update Extras"></type>
+</form>
+
+</body>
+</html>

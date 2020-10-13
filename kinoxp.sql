@@ -104,3 +104,21 @@ INSERT INTO `kinoxp`.`movies_has_schedule` VALUES
 (3, 3),
 (4, 4),
 (5, 5);
+
+
+CREATE TABLE IF NOT EXISTS `kinoxp`.`extras` (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(45) NOT NULL,
+  price DOUBLE NOT NULL,
+  stock INT NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE INDEX id_UNIQUE (id ASC) VISIBLE,
+  UNIQUE INDEX name_UNIQUE (name ASC) VISIBLE)
+ENGINE = InnoDB;
+
+INSERT INTO kinoxp.`extras` VALUES
+(1, "popcorn", 25.0, 100),
+(2, "soda", 10, 500),
+(3, "cola", 30, 50),
+(4, "nachos", 80, 30),
+(5, "candy floss", 50, 80);
