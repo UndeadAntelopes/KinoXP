@@ -3,6 +3,8 @@
 
 *.xml
 
+!pom.xml
+
 *.class
 
 *.iml
