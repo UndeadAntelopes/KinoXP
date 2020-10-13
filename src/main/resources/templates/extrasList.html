@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>We do be testing</title>
+</head>
+<body>
+<h1>testing</h1>
+<h2></h2>
+<a th:href="@{/addExtras}"><button>ADD</button></a>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="extras : ${extras}">
+        <td th:text="${extras.name}"></td>
+        <td th:text="${extras.price}"></td>
+        <td th:text="${extras.stock}"></td>
+
+        <td>
+            <!--VIEW detailed information-->
+            <!--<a th:href=""><button class="btn-action">VIEW</button></a> -->
+            <!--UPDATE information-->
+            <a th:href="@{'/updateExtras/'+${extras.id}}"><button>UPDATE</button></a>
+            <!--DELETE with confirmation message-->
+            <a th:href="@{'/deleteExtras/'+${extras.id}}"><button>DELETE</button></a>
+        </td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

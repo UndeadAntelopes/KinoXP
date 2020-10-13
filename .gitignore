@@ -1,12 +1,12 @@
 
 .idea/dataSources.local.xml
 
+*.xml
+
+!pom.xml
+
 *.class
 
 *.iml
 
 *.class~HEAD
-
-*.xml
-
-!pom.xml

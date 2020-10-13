@@ -1,0 +1,76 @@
+Index: target/classes/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/application.properties	(revision 90af890e070c3da993045fa21ec727f175cae0fd)
++++ target/classes/application.properties	(revision 90af890e070c3da993045fa21ec727f175cae0fd)
+@@ -1,3 +0,0 @@
+-spring.datasource.url=jdbc:mysql://localhost:3306/kinoxp?serverTimezone=UTC
+-spring.datasource.username=kino
+-spring.datasource.password=kino1234!
+Index: target/classes/templates/MovieList.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/templates/MovieList.html	(revision 90af890e070c3da993045fa21ec727f175cae0fd)
++++ target/classes/templates/MovieList.html	(revision 90af890e070c3da993045fa21ec727f175cae0fd)
+@@ -1,32 +0,0 @@
+-<!DOCTYPE html>
+-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+-<head>
+-    <meta charset="UTF-8">
+-    <title>We do be testing</title>
+-</head>
+-<body>
+-<h1></h1>
+-<h2></h2>
+-<table>
+-    <thead>
+-    <tr>
+-        <th>Title</th>
+-        <th>Genre</th>
+-    </tr>
+-    </thead>
+-    <tbody>
+-    <tr th:each="movie : ${movies}">
+-        <td th:text="${movie.title}"></td>
+-        <td th:text="${movie.genre}"></td>
+-    </tr>
+-    <tr>
+-        <th>Title</th>
+-        <th>Duration</th>
+-        <th>Age Limit</th>
+-        <th>Genres</th>
+-        <th>Price</th>
+-    </tr>
+-    </tbody>
+-</table>
+-</body>
+-</html>
+\ No newline at end of file
+Index: .idea/dataSources.local.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"dataSourceStorageLocal\">\n    <data-source name=\"MySQL - @localhost\" uuid=\"0070d369-be51-472a-bd03-3008513751f0\">\n      <database-info product=\"MySQL\" version=\"8.0.19\" jdbc-version=\"4.2\" driver-name=\"MySQL Connector/J\" driver-version=\"mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)\" dbms=\"MYSQL\" exact-version=\"8.0.19\" exact-driver-version=\"8.0\">\n        <extra-name-characters>#@</extra-name-characters>\n        <identifier-quote-string>`</identifier-quote-string>\n      </database-info>\n      <case-sensitivity plain-identifiers=\"lower\" quoted-identifiers=\"lower\" />\n      <user-name>kino</user-name>\n      <schema-mapping>\n        <introspection-scope>\n          <node kind=\"schema\" qname=\"kinoxp\" />\n        </introspection-scope>\n      </schema-mapping>\n    </data-source>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/dataSources.local.xml	(revision 90af890e070c3da993045fa21ec727f175cae0fd)
++++ .idea/dataSources.local.xml	(date 1601974298199)
+@@ -6,11 +6,12 @@
+         <extra-name-characters>#@</extra-name-characters>
+         <identifier-quote-string>`</identifier-quote-string>
+       </database-info>
+-      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
++      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
++      <secret-storage>master_key</secret-storage>
+       <user-name>kino</user-name>
+       <schema-mapping>
+         <introspection-scope>
+-          <node kind="schema" qname="kinoxp" />
++          <node kind="schema" qname="@" />
+         </introspection-scope>
+       </schema-mapping>
+     </data-source>
