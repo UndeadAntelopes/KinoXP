@@ -13,7 +13,7 @@ public class Movie implements Comparable<Movie> {
     private String genre;
     private int year;
     private double rating;
-    private Date duration;
+    private String duration;
     private int ageLimit;
     private String start;
     private String end;
@@ -22,7 +22,7 @@ public class Movie implements Comparable<Movie> {
     public Movie() {
     }
 
-    public Movie(int movieId, String title, String description, String genre, int year, double rating, Date duration, int ageLimit, String start, String end) {
+    public Movie(int movieId, String title, String description, String genre, int year, double rating, String duration, int ageLimit, String start, String end) {
         this.movieId = movieId;
         this.title = title;
         this.description = description;
@@ -83,11 +83,11 @@ public class Movie implements Comparable<Movie> {
         this.rating = rating;
     }
 
-    public Date getDuration() {
+    public String getDuration() {
         return duration;
     }
 
-    public void setDuration(Date duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 

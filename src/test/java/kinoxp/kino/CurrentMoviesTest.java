@@ -27,15 +27,13 @@ public class CurrentMoviesTest {
 
     }
 
+
     //See if the sorting actually sorts via genre
-    //First add movie
     @Test
     void sortedMovies(){
 
-
-
-        List<String> actual = Arrays.asList("action", "Comedy", "erotic", "romantic comedy", "Sci-Fi");
-        List<Movie> expected = movieService.sortByGenre((ArrayList<Movie>) movieService.fetchAll());
+        List<String> actual = Arrays.asList("Action", "Comedy", "Erotic", "Romance Comedy", "Sci-Fi");
+        List<Movie> expected = movieService.sortByGenre((ArrayList<Movie>) movieService.fetchCurrentMovies());
         List<String> list = new ArrayList<>();
 
         for (Movie movie:expected){
@@ -44,7 +42,8 @@ public class CurrentMoviesTest {
         }
 
         //1. Test equal.
-        assertEquals(actual, is(list));
+        assertEquals(actual, list);
+
     }
 
 }
