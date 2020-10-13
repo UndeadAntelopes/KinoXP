@@ -35,7 +35,8 @@ public class MovieRepository {
 
     public List<Movie> fetchAll(){
         String sql = "SELECT * " +
-                "FROM kinoxp.Movies;"; //ask for confirmation
+                "FROM kinoxp.Movies " +
+                "JOIN genres ON genres.genres_id = movies.genres_id;"; //ask for confirmation
         RowMapper<Movie> rowMapper= new BeanPropertyRowMapper<>(Movie.class);
         return template.query(sql,rowMapper);
     }
