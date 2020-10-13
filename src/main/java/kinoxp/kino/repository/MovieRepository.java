@@ -53,7 +53,6 @@ public class MovieRepository {
         "JOIN genres ON genres.genres_id = movies.genres_id " +
         "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id " +
         "JOIN schedule ON movies_has_schedule.schedule_schedule_id = schedule.schedule_id " +
-        "JOIN cinema ON schedule.cinema_id = cinema.cinema_id" +
         "WHERE movies_movie_id IN ( "+ scheduleIds +");";
         RowMapper<Movie> rowMapper = new BeanPropertyRowMapper<>(Movie.class);
         return template.query(sql, rowMapper);
