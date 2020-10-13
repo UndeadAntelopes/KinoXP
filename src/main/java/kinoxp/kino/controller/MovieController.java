@@ -47,7 +47,7 @@ public class MovieController {
         model.addAttribute("movies", movies);
         return "MovieList.html";
     }
-    /*
+    
     //show update movie form
     @GetMapping("/updateMovie/{id}")
     public String updateMovie(@PathVariable("id") int id, Model model){
