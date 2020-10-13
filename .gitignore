@@ -6,3 +6,7 @@
 *.iml
 
 *.class~HEAD
+
+*.xml
+
+!pom.xml
