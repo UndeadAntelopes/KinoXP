@@ -2,12 +2,11 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>We do be testing</title>
+    <title>Movie List</title>
     <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
 </head>
 <body>
-<h1>testing</h1>
-<h2></h2>
+<h1>Currently showing movies</h1>
 <a th:href="@{/add}"><button>ADD</button></a>
 <table>
     <thead>
@@ -38,13 +37,26 @@
             <a th:href="@{'/deleteMovie/'+${movie.movieId}}"><button>DELETE</button></a>
             </td>
     </tr>
+    </tbody>
+</table>
+
+<h1>All movies</h1>
+<table>
+    <thead>
     <tr>
         <th>Title</th>
         <th>Genre</th>
         <th>Age Limit</th>
         <th>Description</th>
-        <th>Movie Start</th>
-        <th>Movie End</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="oldMovie : ${oldMovies}">
+        <td th:text="${oldMovie.title}"></td>
+        <td th:text="${oldMovie.genre}"></td>
+        <td th:text="${oldMovie.ageLimit}"></td>
+        <td th:text="${oldMovie.description}"></td>
+
     </tr>
     </tbody>
 </table>

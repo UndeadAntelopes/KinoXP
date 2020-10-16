@@ -29,8 +29,10 @@ public class MovieController {
     @GetMapping("/movieList")
     public String displayAllMovies(Model model) {
         ArrayList<Movie> movies = movieService.fetchCurrentMovies();
+        List<Movie> oldMovies = movieService.fetchAll();
 
         model.addAttribute("movies", movies);
+        model.addAttribute("oldMovies", oldMovies);
         return "MovieList.html";
     }
 
@@ -39,6 +41,10 @@ public class MovieController {
         ArrayList<Movie> unorderedMovies = movieService.fetchCurrentMovies();
         ArrayList<Movie> movies = movieService.sortByGenre(unorderedMovies);
         model.addAttribute("movies", movies);
+
+        //Show oldMovies (unsorted) for consistency
+        List<Movie> oldMovies = movieService.fetchAll();
+        model.addAttribute("oldMovies", oldMovies);
         return "MovieList.html";
     }
     

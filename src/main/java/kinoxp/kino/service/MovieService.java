@@ -22,6 +22,7 @@ public class MovieService {
     public List<Movie> fetchAll() {
         return movieRepository.fetchAll();
     }
+
     public ArrayList<Schedule> allSchedules() {
         //Retrieve all schedules from the database
         ArrayList<Schedule> schedules = (ArrayList<Schedule>) movieRepository.fetchSchedule();
