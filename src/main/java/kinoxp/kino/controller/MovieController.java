@@ -28,18 +28,12 @@ public class MovieController {
 
     @GetMapping("/movieList")
     public String displayAllMovies(Model model) {
-        List<Movie> movies = movieService.fetchAll();
-
-        model.addAttribute("movies", movies);
-        return "MovieList.html";
-    }
-
-    @GetMapping("/currentlyShowing")
-    public String displayCurrentMovies(Model model) {
         ArrayList<Movie> movies = movieService.fetchCurrentMovies();
+
         model.addAttribute("movies", movies);
         return "MovieList.html";
     }
+
     @GetMapping("/currentlyShowing/{ordered}")
     public String displayOrderedCurrentMovies(Model model) {
         ArrayList<Movie> unorderedMovies = movieService.fetchCurrentMovies();
