@@ -23,7 +23,7 @@ public class MovieController {
 
     @GetMapping("/")
     public String index(){
-        return "index";
+        return "templates/index.html";
     }
 
     @GetMapping("/movieList")

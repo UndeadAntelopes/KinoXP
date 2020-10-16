@@ -11,16 +11,30 @@ public class Schedule {
     private String end;
     private int roomId;
     private int takenSeats;
+    private int availableSeats;
 
     public Schedule(int scheduleId, String start, String end, int roomId, int takenSeats) {
         this.scheduleId = scheduleId;
         this.start = start;
         this.end = end;
         this.roomId = roomId;
+        if (roomId == 1){
+            this.availableSeats = 240;
+        }else {
+            this.availableSeats = 400;
+        }
         this.takenSeats = takenSeats;
     }
 
     public Schedule() {
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
     }
 
     public int getScheduleId() {
@@ -53,6 +67,11 @@ public class Schedule {
 
     public void setRoomId(int roomId) {
         this.roomId = roomId;
+        if (roomId == 1){
+            this.availableSeats = 240;
+        }else {
+            this.availableSeats = 400;
+        }
     }
 
     public int getTakenSeats() {

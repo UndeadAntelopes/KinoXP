@@ -47,6 +47,14 @@ public class MovieRepository {
 
         return template.query(query, rowMapper);
     }
+    public List<Schedule> fetchSchedule(int movie_id) {
+        String query = "SELECT * FROM kinoxp.schedule " +
+                "JOIN movies_has_schedule ON schedule.schedule_id = movies_has_schedule.schedule_schedule_id " +
+                "JOIN movies ON movies_has_schedule.movies_movie_id = movies.movie_id " +
+                "WHERE movies.movie_id = ? ;";
+        RowMapper<Schedule> rowMapper = new BeanPropertyRowMapper<>(Schedule.class);
+        return template.query(query, rowMapper, movie_id);
+    }
 
     public List<Movie> fetchCurrentMovies (String scheduleIds){
         String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end, cinema_id " +
