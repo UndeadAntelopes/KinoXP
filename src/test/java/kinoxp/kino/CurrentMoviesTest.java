@@ -27,6 +27,11 @@ public class CurrentMoviesTest {
 
     }
 
+    //Test if dateTime scheduling works
+    @Test
+    void currentSchedules() {
+        assertEquals("2020-10-15 10:00:00", movieService.currentSchedule().get(0).getStart());
+    }
 
     //See if the sorting actually sorts via genre
     @Test
