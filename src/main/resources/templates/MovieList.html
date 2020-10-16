@@ -58,6 +58,88 @@
         <td th:text="${oldMovie.description}"></td>
 
     </tr>
+    <h1>Old Movies</h1>
+    <h2></h2>
+    <a th:href="@{/add}"><button>ADD</button></a>
+    <table>
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th><a th:href="@{'/currentlyShowing/'+${ordered}}">Genre</a></th>
+            <th>Age Limit</th>
+            <th>Description</th>
+            <th>Movie Start</th>
+            <th>Movie End</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.genre}"></td>
+            <td th:text="${movie.ageLimit}"></td>
+            <td th:text="${movie.description}"></td>
+            <td th:text="${movie.start}"></td>
+            <td th:text="${movie.end}"></td>
+
+            <td>
+                <!--VIEW detailed information-->
+                <!--<a th:href=""><button class="btn-action">VIEW</button></a> -->
+                <!--UPDATE information-->
+                <!-- <a th:href="@{'/updateMovie/'+${movie.movieId}}"><button>UPDATE</button></a> -->
+                <!-- <!--DELETE with confirmation message--> -->
+                <a th:href="@{'/deleteMovie/'+${movie.movieId}}"><button>DELETE</button></a>
+            </td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Age Limit</th>
+            <th>Description</th>
+            <th>Movie Start</th>
+            <th>Movie End</th>
+        </tr>
+    </tbody>
+</table>
+<h1>Old movies</h1>
+<h2></h2>
+<a th:href="@{/add}"><button>ADD</button></a>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th><a th:href="@{'/movieList/'+${ordered}}">Genre</a></th>
+        <th>Age Limit</th>
+        <th>Description</th>
+        <th>Movie Start</th>
+        <th>Movie End</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="movie : ${movies}">
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.genre}"></td>
+        <td th:text="${movie.ageLimit}"></td>
+        <td th:text="${movie.description}"></td>
+        <td th:text="${movie.start}"></td>
+        <td th:text="${movie.end}"></td>
+
+        <td>
+            <!--VIEW detailed information-->
+            <!--<a th:href=""><button class="btn-action">VIEW</button></a> -->
+            <!--UPDATE information-->
+            <!--<a th:href="@{'/updateMovie/'+${movie.movieId}}"><button>UPDATE</button></a> -->
+            <!--DELETE with confirmation message-->
+            <!-- <a th:href="@{'/deleteMovie/'+${movie.movieId}}"><button>DELETE</button></a> -->
+        </td>
+    </tr>
+    <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Age Limit</th>
+        <th>Description</th>
+        <th>Movie Start</th>
+        <th>Movie End</th>
+    </tr>
     </tbody>
 </table>
 </body>

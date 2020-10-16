@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -25,6 +24,11 @@ public class MovieRepository {
         String sql = "INSERT INTO movies (title, description, duration, age_limit, genres_id) VALUES (?, ?, ?, ?, ?)";
         template.update(sql, m.getTitle(), m.getDescription(), m.getDuration(), m.getAgeLimit(), m.getGenre());
         return null;
+    }
+
+    public void setSchedule(Schedule s) {
+        String sql = "INSERT INTO schedule(start, end, cinema_id) VALUES (?, ?, ?)";
+        template.update(sql, s.getStart(), s.getEnd(), s.getCinemaId());
     }
 
     public Movie updateMovie(Movie movie) {
