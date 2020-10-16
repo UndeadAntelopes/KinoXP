@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Movie</title>
+    <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
+</head>
+<body>
+
+<h1>Update Movie</h1>
+<form th:action="@{'/updateMovie/'+${movie.movieId}}" method="post">
+    <label>Movie ID</label>
+    <input type="text" name="id" disabled th:value="${movie.movieId}" >
+    <br>
+    <label>Enter Movie Title</label>
+    <input type="text" name="title" th:value="${movie.title}" >
+    <br>
+        <label>Enter Description</label>
+        <input type="text" name="description" th:value="${movie.description}">
+    <br>
+        <label>Enter Movie Duration</label>
+    <input type="time" name="duration" step="1" th:value="${movie.duration}">
+    <br>
+        <label>Enter Movie Age Limit</label>
+        <input type="number" name="ageLimit" th:value="${movie.ageLimit}">
+    <br>
+    <label>Enter Movie Genre</label>
+    <input type="number" name="genre">
+    <br>
+    <input type="submit" value="update movie"></type>
+
+</form>
+
+</body>
+</html>

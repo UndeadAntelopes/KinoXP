@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ScheduledExecutorService;
 
 @Service
 public class MovieService {
@@ -90,9 +89,6 @@ public class MovieService {
         return movieRepository.findMovieById(id);
     }
 
-    public void addSchedule(Schedule s){
-         movieRepository.setSchedule(s);
-    }
 
 
 }

@@ -1,0 +1,26 @@
+<div th:fragment="menu_template" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="navigation">
+        <nav class="flex-container" id="menu">
+
+            <!-- Home tab menu link           -->
+            <a href="/" class="menu_link" title="Main menu" id="home">
+                <button class="menu_item" title="Main menu"><strong>Home</strong></button>
+            </a>
+
+            <!-- Add Movies menu link           -->
+            <a href="/add" class="menu_link" title="Add a Movie" id="addMov">
+                <button class="menu_item" title="Add a Movie"><strong>Add a Movie</strong></button>
+            </a>
+
+            <!-- View movies menu link           -->
+            <a href="/movieList" class="menu_link" title="List of Movies" id="movList">
+                <button class="menu_item" title="List of Movies"><strong>List of Movies</strong></button>
+            </a>
+
+            <!-- LOGOUT -->
+            <a href="/logout" class="menu_link">
+                <button class="logout"><strong>LOG OUT</strong> </button>
+            </a>
+      </nav>
+     </div>
+ </div>

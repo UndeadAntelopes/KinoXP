@@ -1,7 +1,6 @@
 package kinoxp.kino.controller;
 
 import kinoxp.kino.model.Movie;
-import kinoxp.kino.model.Schedule;
 import kinoxp.kino.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +11,9 @@ import java.util.List;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class MovieController {
@@ -80,13 +82,5 @@ public class MovieController {
         return "redirect:/movieList";
     }
 
-    @PostMapping ("/setSchedule")
-    public String setSchedule(@ModelAttribute Schedule schedule){
-        movieService.addSchedule(schedule);
-        return "redirect:/movieList";
-    }
-
-    @GetMapping ("/setSchedule")
-    public String setSchedule() { return "setSchedule";}
 
 }
