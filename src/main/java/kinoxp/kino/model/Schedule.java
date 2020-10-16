@@ -9,13 +9,15 @@ public class Schedule {
     private int scheduleId;
     private String start;
     private String end;
-    private int cinemaId;
+    private int roomId;
+    private int takenSeats;
 
-    public Schedule(int scheduleId, String start, String end, int cinemaId) {
+    public Schedule(int scheduleId, String start, String end, int roomId, int takenSeats) {
         this.scheduleId = scheduleId;
         this.start = start;
         this.end = end;
-        this.cinemaId = cinemaId;
+        this.roomId = roomId;
+        this.takenSeats = takenSeats;
     }
 
     public Schedule() {
@@ -45,21 +47,19 @@ public class Schedule {
         this.end = end;
     }
 
-    public int getCinemaId() {
-        return cinemaId;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setCinemaId(int cinemaId) {
-        this.cinemaId = cinemaId;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "scheduleId=" + scheduleId +
-                ", start='" + start + '\'' +
-                ", end='" + end + '\'' +
-                ", cinemaId=" + cinemaId +
-                '}';
+    public int getTakenSeats() {
+        return takenSeats;
+    }
+
+    public void setTakenSeats(int takenSeats) {
+        this.takenSeats = takenSeats;
     }
 }
