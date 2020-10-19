@@ -22,12 +22,16 @@ public class ReservationController {
 
     @Autowired
     ReservationService reservationService;
+    MovieService movieService;
 
 
     @GetMapping("/selectTime/{movie_id}")
     public String select(@PathVariable("movie_id") int movie_id, Model model) {
         List<Schedule> listOfSchedule = reservationService.getScheduleForMovie(movie_id);
+        Movie movie = movieService.findMovieById(movie_id);
+        System.out.println(movie.toString());
         model.addAttribute("listOfSchedule", listOfSchedule);
+        model.addAttribute("title", movie.getTitle());
         return "Time";
     }
 

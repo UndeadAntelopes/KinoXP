@@ -5,14 +5,14 @@
     <title>Screenings</title>
 </head>
 <body>
-<h1>Movie title ADD!!!!!!! put number of tickets and reserve button, tests
-</h1>
+<h1 th:text="${title}"></h1>
 <table>
     <thead>
     <tr>
         <th>Movie Start</th>
         <th>Movie End</th>
         <th>Available Seats</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +20,8 @@
         <td th:text="${schedule.start}"></td>
         <td th:text="${schedule.end}"></td>
         <td th:text="${schedule.availableSeats - schedule.takenSeats}"></td>
+        <td><input type="number" name="numerOfSeats" min="0" max="${schedule.availableSeats - schedule.takenSeats}" id="seats">
+            <a th:href="@{'/time/'+${}}"><button>Reserve</button></a></td>
     </tr>
     <tr>
         <th>Movie Start</th>
