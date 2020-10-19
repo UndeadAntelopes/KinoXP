@@ -36,7 +36,7 @@ public class MovieController {
         return "MovieList.html";
     }
 
-    @GetMapping("/currentlyShowing/{ordered}")
+    @GetMapping("/currentlyShowing/ordered")
     public String displayOrderedCurrentMovies(Model model) {
         ArrayList<Movie> unorderedMovies = movieService.fetchCurrentMovies();
         ArrayList<Movie> movies = movieService.sortByGenre(unorderedMovies);
