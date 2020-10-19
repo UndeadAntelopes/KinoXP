@@ -16,28 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `cinema`
+-- Table structure for table `room`
 --
 
-DROP TABLE IF EXISTS `cinema`;
+DROP TABLE IF EXISTS `room`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cinema` (
-  `cinema_id` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `room` (
+  `room_id` int NOT NULL AUTO_INCREMENT,
+  `room_name` VARCHAR(40) NOT NULL,
   `seats` int NOT NULL,
-  PRIMARY KEY (`cinema_id`),
-  UNIQUE KEY `cinema_id_UNIQUE` (`cinema_id`)
+  PRIMARY KEY (`room_id`),
+  UNIQUE KEY `room_id_UNIQUE` (`room_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cinema`
+-- Dumping data for table `room`
 --
 
-LOCK TABLES `cinema` WRITE;
-/*!40000 ALTER TABLE `cinema` DISABLE KEYS */;
-INSERT INTO `cinema` VALUES (1,40),(2,70),(3,120);
-/*!40000 ALTER TABLE `cinema` ENABLE KEYS */;
+LOCK TABLES `room` WRITE;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` VALUES (1,"Room A",240),(2,"Room A",400);
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -133,13 +134,14 @@ DROP TABLE IF EXISTS `schedule`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `schedule` (
   `schedule_id` int NOT NULL AUTO_INCREMENT,
+  `taken_seat` int NOT NULL DEFAULT 0,
   `start` timestamp NOT NULL,
   `end` timestamp NOT NULL,
-  `cinema_id` int DEFAULT NULL,
+  `room_id` int,
   PRIMARY KEY (`schedule_id`),
   UNIQUE KEY `schedule_id_UNIQUE` (`schedule_id`),
-  KEY `cinema_id_idx` (`cinema_id`),
-  CONSTRAINT `cinema_id` FOREIGN KEY (`cinema_id`) REFERENCES `cinema` (`cinema_id`) ON DELETE SET NULL ON UPDATE CASCADE
+  KEY `room_id_idx` (`room_id`),
+  CONSTRAINT `room_id` FOREIGN KEY (`room_id`) REFERENCES `room` (`room_id`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -149,7 +151,7 @@ CREATE TABLE `schedule` (
 
 LOCK TABLES `schedule` WRITE;
 /*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
-INSERT INTO `schedule` VALUES (1,'2020-10-15 08:00:00','2020-10-15 09:25:00',1),(2,'2020-10-15 10:00:00','2020-10-15 10:50:00',1),(3,'2020-10-15 11:00:00','2020-10-15 12:45:00',1),(4,'2020-10-15 13:00:00','2020-10-15 14:00:00',2),(5,'2020-10-15 14:15:00','2020-10-15 15:30:00',3);
+INSERT INTO `schedule`(`schedule_id`, `start`, `end`, `room_id`) VALUES (1,'2020-10-15 08:00:00','2020-10-15 09:25:00',1),(2,'2020-10-15 10:00:00','2020-10-15 10:50:00',1),(3,'2020-10-15 11:00:00','2020-10-15 12:45:00',1),(4,'2020-10-15 13:00:00','2020-10-15 14:00:00',2),(5,'2020-10-15 14:15:00','2020-10-15 15:30:00',2);
 /*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +165,7 @@ DROP TABLE IF EXISTS `ticket`;
 CREATE TABLE `ticket` (
   `ticket_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `seat_name` varchar(45) NOT NULL,
+  `amount` int NOT NULL,
   `movie_id` int NOT NULL,
   `schedule_id` int NOT NULL,
   PRIMARY KEY (`ticket_id`),
@@ -181,7 +183,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (1,'Thomas','A12',1,1),(2,'Dorin','A13',1,1),(3,'Christian','C15',1,1),(4,'Nesrin','B7',2,2),(5,'Marianna','B8',2,2),(6,'Ilias ','C12',4,4),(7,'Dagmara','D19',5,5),(8,'Alexandru','E4',3,3),(9,'Marianne Teacher','D9',5,5);
+INSERT INTO `ticket` VALUES (1,'Thomas',12,1,1),(2,'Dorin',13,1,1),(3,'Christian',15,1,1),(4,'Nesrin',7,2,2),(5,'Marianna',8,2,2),(6,'Ilias ',12,4,4),(7,'Dagmara',19,5,5),(8,'Alexandru',4,3,3),(9,'Marianne Teacher',9,5,5);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

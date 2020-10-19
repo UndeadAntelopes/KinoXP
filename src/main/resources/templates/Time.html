@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Screenings</title>
+</head>
+<body>
+<h1 th:text="${title}"></h1>
+<table>
+    <thead>
+    <tr>
+        <th>Movie Start</th>
+        <th>Movie End</th>
+        <th>Available Seats</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="schedule : ${listOfSchedule}">
+        <td th:text="${schedule.start}"></td>
+        <td th:text="${schedule.end}"></td>
+        <td th:text="${schedule.availableSeats - schedule.takenSeats}"></td>
+        <td><input type="number" name="numerOfSeats" min="0" max="${schedule.availableSeats - schedule.takenSeats}" id="seats">
+            <a th:href="@{'/time/'+${}}"><button>Reserve</button></a></td>
+    </tr>
+    <tr>
+        <th>Movie Start</th>
+        <th>Movie End</th>
+        <th>Available Seats</th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
