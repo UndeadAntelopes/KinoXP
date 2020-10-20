@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class MovieService {
@@ -58,7 +55,6 @@ public class MovieService {
             //Store current time and declare a parser
             DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
             LocalDateTime today = LocalDateTime.now();
-
             //Loop to filter schedules for only currently showing movies
             int currentMonth = today.getMonthValue();
             int currentDate = today.getDayOfMonth();
@@ -89,6 +85,10 @@ public class MovieService {
         return movieRepository.findMovieById(id);
     }
 
+    public void addSchedule(Schedule s){
+        movieRepository.setSchedule(s);
+    }
 
+    public void assignMovieToSchedule(int movieId, int scheduleId) {movieRepository.assignMovieToSchedule(movieId, scheduleId);}
 
 }

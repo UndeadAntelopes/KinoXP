@@ -1,0 +1,37 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Schedule</title>
+</head>
+<body>
+<h1>Add Schedule</h1>
+<form action = "/setSchedule" method="post">
+    <label>Enter start time</label>
+    <input type="datetime-local" name="start">
+    <br>
+    <label>Enter end time</label>
+    <input type="datetime-local" name="end">
+    <br>
+
+    <label>Enter cinema</label>
+    <select id="cinemaId" name="cinemaId">
+        <option value="1">Big Hall</option>
+        <option value="2">Small Hall</option>
+    </select>
+    <br>
+
+    <label>Assign movie to schedule</label>
+    <select id="movieId" name="movieId">
+    <option
+            th:each="movieId : ${movies}"
+            th:value="${movieId.movieId}"
+            th:text="${movieId.title}"
+            th:selected="${movieId.movieId==1}">
+    </option>
+    </select>
+    <br>
+
+    <input type="submit" value="Add new showing">
+</form>
+</body>
+</html>

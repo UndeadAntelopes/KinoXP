@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,4 +72,14 @@ public class MovieRepository {
         return template.queryForObject(sql, rowMapper, id);
     }
 
+    public void setSchedule(Schedule s) {
+        String sql = "INSERT INTO schedule(start, end, cinema_id) VALUES (?, ?, ?)";
+        template.update(sql, s.getStart(), s.getEnd(), s.getCinemaId());
+    }
+
+    public void assignMovieToSchedule(int movieId, int scheduleId) {
+        String sql = "INSERT INTO movies_has_schedule (movies_movie_id, schedule_schedule_id) " +
+                "VALUES (?, ?);";
+        template.update(sql, movieId, scheduleId);
+    }
 }

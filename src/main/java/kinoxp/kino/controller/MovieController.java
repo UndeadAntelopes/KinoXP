@@ -1,6 +1,6 @@
 package kinoxp.kino.controller;
 
-import kinoxp.kino.model.Movie;
+import kinoxp.kino.model.*;
 import kinoxp.kino.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -87,5 +87,19 @@ public class MovieController {
         return "redirect:/movieList";
     }
 
+    @GetMapping ("/setSchedule")
+    public String setSchedule(Model model) {
+        model.addAttribute("movies", movieService.fetchAll());
+        return "setSchedule";
+    }
 
+    @PostMapping ("/setSchedule")
+    public String setSchedule(@ModelAttribute Schedule schedule, @ModelAttribute Movie movieId){
+        movieService.addSchedule(schedule);
+
+        //Retrieve last added schedule's id
+        List<Schedule> schedules =  movieService.allSchedules();
+        movieService.assignMovieToSchedule(movieId.getMovieId(), schedules.get(schedules.size()-1).getScheduleId());
+        return "redirect:/movieList";
+    }
 }
