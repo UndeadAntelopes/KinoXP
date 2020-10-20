@@ -8,9 +8,8 @@
 <body>
 <div th:replace="menu :: menu_template"></div>
 <div><h1>Currently showing movies</h1><br>
-<a th:href="@{/add}"><button>ADD</button></a>
-<a th:href="@{/setSchedule}"><button>SCHEDULE</button></a>
-<table>
+<!-- <a th:href="@{/add}"><button>ADD</button></a> -->
+<!-- <a th:href="@{/setSchedule}"><button>SCHEDULE</button></a> -->
 <table class="table_design">
     <thead>
     <tr>
@@ -32,11 +31,10 @@
         <td th:text="${movie.end}"></td>
 
         <td>
-             VIEW detailed information
-            <a th:href=""><button class="btn-action">VIEW</button></a>
-            -UPDATE information
+            
+            <!-- UPDATE information -->
             <a th:href="@{'/updateMovie/'+${movie.movieId}}"><button>UPDATE</button></a>
-            DELETE with confirmation message
+            <!-- DELETE with confirmation message -->
             <a th:href="@{'/deleteMovie/'+${movie.movieId}}"><button>DELETE</button></a>
             </td>
     </tr>
