@@ -1,0 +1,362 @@
+Index: src/main/resources/templates/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:th=\"http://www.w3.org/1999/xhtml\">\r\n<head th:insert=\"header :: header_template\">\r\n    <meta charset=\"UTF-8\">\r\n    <title id=\"title\">KINOXP</title>\r\n    <link rel=\"stylesheet\" href=\"layout.css\" th:href=\"@{/layout.css}\">\r\n    <!-- import header part-->\r\n</head>\r\n<body>\r\n\r\n<div th:replace=\"menu :: menu_template\"></div>\r\n\r\n<div class=\"cinema\">\r\n    <img src=\"http://localhost:8080/image/biografenimg.jpg\" height=\"400\">\r\n</div>\r\n<div th:insert=\"footer :: footer_template\"></div>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/index.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/index.html	(date 1602855029920)
+@@ -1,18 +1,15 @@
+ <!DOCTYPE html>
+ <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+-<head th:insert="header :: header_template">
++<head>
+     <meta charset="UTF-8">
+     <title id="title">KINOXP</title>
+-    <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+     <!-- import header part-->
+ </head>
+ <body>
+-
+ <div th:replace="menu :: menu_template"></div>
+-
+ <div class="cinema">
+     <img src="http://localhost:8080/image/biografenimg.jpg" height="400">
+ </div>
+-<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/templates/menu.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><div th:fragment=\"menu_template\" xmlns:th=\"http://www.w3.org/1999/xhtml\">\r\n    <div class=\"navigation\">\r\n        <nav class=\"flex-container\" id=\"menu\">\r\n\r\n            <!-- Home tab menu link           -->\r\n            <a href=\"/\" class=\"menu_link\" title=\"Main menu\" id=\"home\">\r\n                <button class=\"menu_item\" title=\"Main menu\"><strong>Home</strong></button>\r\n            </a>\r\n\r\n            <!-- Add Movies menu link           -->\r\n            <a href=\"/add\" class=\"menu_link\" title=\"Add a Movie\" id=\"addMov\">\r\n                <button class=\"menu_item\" title=\"Add a Movie\"><strong>Add a Movie</strong></button>\r\n            </a>\r\n\r\n            <!-- View movies menu link           -->\r\n            <a href=\"/movieList\" class=\"menu_link\" title=\"List of Movies\" id=\"movList\">\r\n                <button class=\"menu_item\" title=\"List of Movies\"><strong>List of Movies</strong></button>\r\n            </a>\r\n\r\n            <!-- LOGOUT -->\r\n            <a href=\"/logout\" class=\"menu_link\">\r\n                <button class=\"logout\"><strong>LOG OUT</strong> </button>\r\n            </a>\r\n      </nav>\r\n     </div>\r\n </div>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/menu.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/menu.html	(date 1602854409987)
+@@ -1,26 +1,22 @@
+ <div th:fragment="menu_template" xmlns:th="http://www.w3.org/1999/xhtml">
+     <div class="navigation">
+         <nav class="flex-container" id="menu">
+-
++            <div class="center_menu_buttons">
+             <!-- Home tab menu link           -->
+             <a href="/" class="menu_link" title="Main menu" id="home">
+-                <button class="menu_item" title="Main menu"><strong>Home</strong></button>
++                <button class="menu_item" title="Main menu"><strong>HOME</strong></button>
+             </a>
+ 
+             <!-- Add Movies menu link           -->
+             <a href="/add" class="menu_link" title="Add a Movie" id="addMov">
+-                <button class="menu_item" title="Add a Movie"><strong>Add a Movie</strong></button>
++                <button class="menu_item" title="Add a Movie"><strong>ADD A MOVIE</strong></button>
+             </a>
+ 
+             <!-- View movies menu link           -->
+             <a href="/movieList" class="menu_link" title="List of Movies" id="movList">
+-                <button class="menu_item" title="List of Movies"><strong>List of Movies</strong></button>
++                <button class="menu_item" title="List of Movies"><strong>LIST OF MOVIES</strong></button>
+             </a>
+-
+-            <!-- LOGOUT -->
+-            <a href="/logout" class="menu_link">
+-                <button class="logout"><strong>LOG OUT</strong> </button>
+-            </a>
++            </div>
+       </nav>
+      </div>
+  </div>
+\ No newline at end of file
+Index: src/main/resources/templates/addExtras.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Add Extras</title>\r\n</head>\r\n<body>\r\n\r\n<h1>Add Extras</h1>\r\n<form action = \"/addExtras\" method=\"post\">\r\n    <label>Extras Name</label>\r\n    <input type=\"text\" name=\"name\">\r\n    <br>\r\n    <label>Enter Price</label>\r\n    <input type=\"number\" step=\".01\" min =\"0\" name=\"price\">\r\n    <br>\r\n    <label>Enter Stock Left</label>\r\n    <input type=\"number\" min=\"0\" name=\"stock\">\r\n    <br>\r\n    <input type=\"submit\" value=\"Add Extras\"></type>\r\n\r\n</form>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/addExtras.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/addExtras.html	(date 1602854409997)
+@@ -1,11 +1,12 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+ <head>
+     <meta charset="UTF-8">
+     <title>Add Extras</title>
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+ </head>
+ <body>
+-
++<div th:replace="menu :: menu_template"></div>
+ <h1>Add Extras</h1>
+ <form action = "/addExtras" method="post">
+     <label>Extras Name</label>
+@@ -20,6 +21,6 @@
+     <input type="submit" value="Add Extras"></type>
+ 
+ </form>
+-
++<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/static/css/layout.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>body{\r\n    background-color: #c2b4ff;\r\n    margin-left: 0px;\r\n    margin-right: 0px;\r\n    margin-top: 0px;\r\n    border-left: 0px;\r\n    border-right: 0px;\r\n    border-top: 0px;\r\n}\r\n\r\n.cinema{\r\n    position: center;\r\n    alignment: center;\r\n    margin-left: 30%;\r\n    margin-right: 30%;\r\n    margin-top: 4%\r\n}\r\n\r\n.footer{\r\n    position: center;\r\n    alignment: center;\r\n    margin-left: 30%;\r\n    margin-right: 30%;\r\n    margin-top: 5%;\r\n}\r\n\r\n.flex-container{\r\n    position: center;\r\n    object-position: center;\r\n    alignment: center;\r\n    object-position: center;\r\n    background-color: #1a0034;\r\n    padding-left: 18%;\r\n    padding-right: 18%;\r\n    padding-top: 2%;\r\n    padding-bottom: 2%;\r\n    margin-left: 0px;\r\n    margin-right: 0px;\r\n    margin-top: 0px;\r\n    border-left: 0px;\r\n    border-right: 0px;\r\n    border-top: 0px;\r\n}\r\n\r\n.logout{\r\n    background-color: #c2b4ff;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    margin-left: 60px;\r\n    margin-right: 60px;\r\n}\r\n\r\n.menu_item{\r\n    background-color: #c2b4ff;\r\n    padding-left: 20px;\r\n    padding-right: 20px;\r\n    margin-left: 60px;\r\n    margin-right: 60px;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/static/css/layout.css	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/static/css/layout.css	(date 1602854321557)
+@@ -52,8 +52,52 @@
+ 
+ .menu_item{
+     background-color: #c2b4ff;
+-    padding-left: 20px;
+-    padding-right: 20px;
+-    margin-left: 60px;
+-    margin-right: 60px;
++    width: 150px;
++    alignment: center;
++    position: center;
++    object-position: center;
++    text-align: center;
++    border: 0;
++    margin-left: 50px;
++    margin-right: 50px;
++}
++
++.center_menu_buttons{
++    position: center;
++    object-position: center;
++    width: fit-content;
++    padding-left: 10%;
++    padding-right: 10%;
++    margin-left: auto;
++}
++
++.center_subpage_items{
++    position: center;
++    alignment: center;
++    align-items: center;
++    width: max-content;
++    object-position: center;
++    margin-left: 41%;
++    background-color: transparent;
++
++}
++
++form{
++    position: center;
++    alignment: center;
++    align-items: center;
++    text-align: center;
++    width: fit-content;
++    margin-top:10%;
++    margin-left: 10%;
++}
++
++input{
++    width: 200px;
++}
++
++h1{
++    position: center;
++    alignment: center;
++    text-align: center;
+ }
+\ No newline at end of file
+Index: src/main/resources/templates/add.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Add Movie</title>\r\n</head>\r\n<body>\r\n\r\n<h1>Add Another Movie</h1>\r\n<form action = \"/add\" method=\"post\">\r\n    <label>Enter Movie Title</label>\r\n    <input type=\"text\" name=\"title\">\r\n    <br>\r\n        <label>Enter Description</label>\r\n        <input type=\"text\" name=\"description\">\r\n    <br>\r\n        <label>Enter Movie Duration</label>\r\n        <input type=\"time\" step=\"1\" name=\"duration\">\r\n    <br>\r\n        <label>Enter Movie Age Limit</label>\r\n        <input type=\"number\" name=\"ageLimit\">\r\n    <br>\r\n    <label>Enter Movie Genre</label>\r\n    <input type=\"number\" name=\"genre\">\r\n    <br>\r\n    <input type=\"submit\" value=\"add new movie\"></type>\r\n\r\n</form>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/add.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/add.html	(date 1602854321564)
+@@ -1,31 +1,29 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+ <head>
+     <meta charset="UTF-8">
+     <title>Add Movie</title>
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+ </head>
+ <body>
+-
++<div th:replace="menu :: menu_template"></div>
++<div class="center_subpage_items">
+ <h1>Add Another Movie</h1>
+ <form action = "/add" method="post">
+-    <label>Enter Movie Title</label>
+-    <input type="text" name="title">
+-    <br>
+-        <label>Enter Description</label>
+-        <input type="text" name="description">
+-    <br>
+-        <label>Enter Movie Duration</label>
+-        <input type="time" step="1" name="duration">
+-    <br>
+-        <label>Enter Movie Age Limit</label>
+-        <input type="number" name="ageLimit">
+-    <br>
+-    <label>Enter Movie Genre</label>
+-    <input type="number" name="genre">
+-    <br>
+-    <input type="submit" value="add new movie"></type>
++    <div><label>Enter Movie Title</label><br>
++    <input type="text" name="title" placeholder="- nothing added -" style="text-align: center"></div>
++        <div><label>Enter Description</label><br>
++        <input type="text" name="description" placeholder="- nothing added -" style="text-align: center"></div>
++            <div><label>Enter Movie Duration</label><br>
++            <input type="time" step="1" name="duration" placeholder="- nothing added -" style="text-align: center"></div>
++                <div><label>Enter Movie Age Limit</label><br>
++                <input type="number" name="ageLimit" placeholder="- nothing added -" style="text-align: center"></div>
++                    <div><label>Enter Movie Genre</label><br>
++                    <input type="number" name="genre" placeholder="- nothing added -" style="text-align: center"></div><br>
+ 
++    <div><input type="submit" value="Submit"></type></div><br>
+ </form>
+-
++</div>
++<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/templates/ActionSuccessful.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:th=\"http://www.w3.org/1999/xhtml\">>\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Action Succeeded</title>\r\n    <!-- <link rel=\"stylesheet\" type=\"text/css\" href=\"src/main/resources/static/styles.css\" th:href=\"@{/styles.css}\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"src/main/resources/static/TableCSS.css\" th:href=\"@{/tableCSS.css}\" /> -->\r\n    <link rel=\"stylesheet\" href=\"layout.css\" th:href=\"@{/layout.css}\">\r\n</head>\r\n<body>\r\n\r\n<h1>Your Movie was successfully added to the database</h1>\r\n<form action=\"/add\" method=\"post\">\r\n    <input type=\"submit\" value=\"Next\">\r\n</form>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/ActionSuccessful.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/ActionSuccessful.html	(date 1602854321570)
+@@ -3,15 +3,14 @@
+ <head>
+     <meta charset="UTF-8">
+     <title>Action Succeeded</title>
+-    <!-- <link rel="stylesheet" type="text/css" href="src/main/resources/static/styles.css" th:href="@{/styles.css}" />
+-    <link rel="stylesheet" type="text/css" href="src/main/resources/static/TableCSS.css" th:href="@{/tableCSS.css}" /> -->
+-    <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+ </head>
+ <body>
+-
++<div th:replace="menu :: menu_template"></div>
+ <h1>Your Movie was successfully added to the database</h1>
+ <form action="/add" method="post">
+     <input type="submit" value="Next">
+ </form>
++<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/templates/header.html
+===================================================================
+--- src/main/resources/templates/header.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/header.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
+@@ -1,6 +0,0 @@
+-<head th:fragment="header_template" xmlns:th="http://www.w3.org/1999/xhtml">
+-
+-    <title th:include=":: #title">KINOXP</title>
+-    <meta charset="UTF-8">
+-    <link rel="stylesheet" type="text/css" href="http://localhost:8080/css/layout.css"/>
+-</head>
+\ No newline at end of file
+Index: src/main/resources/templates/extrasList.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:th=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>We do be testing</title>\r\n</head>\r\n<body>\r\n<h1>testing</h1>\r\n<h2></h2>\r\n<a th:href=\"@{/addExtras}\"><button>ADD</button></a>\r\n<table>\r\n    <thead>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Price</th>\r\n        <th>Stock</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n    <tr th:each=\"extras : ${extras}\">\r\n        <td th:text=\"${extras.name}\"></td>\r\n        <td th:text=\"${extras.price}\"></td>\r\n        <td th:text=\"${extras.stock}\"></td>\r\n\r\n        <td>\r\n            <!--VIEW detailed information-->\r\n            <!--<a th:href=\"\"><button class=\"btn-action\">VIEW</button></a> -->\r\n            <!--UPDATE information-->\r\n            <a th:href=\"@{'/updateExtras/'+${extras.id}}\"><button>UPDATE</button></a>\r\n            <!--DELETE with confirmation message-->\r\n            <a th:href=\"@{'/deleteExtras/'+${extras.id}}\"><button>DELETE</button></a>\r\n        </td>\r\n    </tr>\r\n    <tr>\r\n        <th>Name</th>\r\n        <th>Price</th>\r\n        <th>Stock</th>\r\n    </tr>\r\n    </tbody>\r\n</table>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/extrasList.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/extrasList.html	(date 1602854409992)
+@@ -3,8 +3,10 @@
+ <head>
+     <meta charset="UTF-8">
+     <title>We do be testing</title>
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+ </head>
+ <body>
++<div th:replace="menu :: menu_template"></div>
+ <h1>testing</h1>
+ <h2></h2>
+ <a th:href="@{/addExtras}"><button>ADD</button></a>
+@@ -38,5 +40,6 @@
+     </tr>
+     </tbody>
+ </table>
++<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/templates/updateExtras.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:th=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Update Extras</title>\r\n</head>\r\n<body>\r\n\r\n<h1>Update Extras</h1>\r\n<form th:action=\"@{'/updateExtras/'+${extras.id}}\" method=\"post\">\r\n\r\n    <label>Extras ID</label>\r\n    <input type=\"text\" name=\"id\" disabled th:value=\"${extras.id}\" >\r\n    <br>\r\n        <label>Extras Name</label>\r\n        <input type=\"text\" name=\"name\" th:value=\"${extras.name}\">\r\n        <br>\r\n        <label>Enter Price</label>\r\n        <input type=\"number\" step=\".01\" min=\"0\" name=\"price\" th:value=\"${extras.price}\">\r\n        <br>\r\n        <label>Enter Stock Left</label>\r\n        <input type=\"number\" name=\"stock\" min=\"0\" th:value=\"${extras.stock}\">\r\n        <br>\r\n        <input type=\"submit\" value=\"Update Extras\"></type>\r\n</form>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/updateExtras.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/updateExtras.html	(date 1602854410003)
+@@ -3,9 +3,10 @@
+ <head>
+     <meta charset="UTF-8">
+     <title>Update Extras</title>
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+ </head>
+ <body>
+-
++<div th:replace="menu :: menu_template"></div>
+ <h1>Update Extras</h1>
+ <form th:action="@{'/updateExtras/'+${extras.id}}" method="post">
+ 
+@@ -23,6 +24,6 @@
+         <br>
+         <input type="submit" value="Update Extras"></type>
+ </form>
+-
++<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/templates/updateMovie.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\" xmlns:th=\"http://www.w3.org/1999/xhtml\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Update Movie</title>\r\n    <link rel=\"stylesheet\" href=\"layout.css\" th:href=\"@{/layout.css}\">\r\n</head>\r\n<body>\r\n\r\n<h1>Update Movie</h1>\r\n<form th:action=\"@{'/updateMovie/'+${movie.movieId}}\" method=\"post\">\r\n    <label>Movie ID</label>\r\n    <input type=\"text\" name=\"id\" disabled th:value=\"${movie.movieId}\" >\r\n    <br>\r\n    <label>Enter Movie Title</label>\r\n    <input type=\"text\" name=\"title\" th:value=\"${movie.title}\" >\r\n    <br>\r\n        <label>Enter Description</label>\r\n        <input type=\"text\" name=\"description\" th:value=\"${movie.description}\">\r\n    <br>\r\n        <label>Enter Movie Duration</label>\r\n    <input type=\"time\" name=\"duration\" step=\"1\" th:value=\"${movie.duration}\">\r\n    <br>\r\n        <label>Enter Movie Age Limit</label>\r\n        <input type=\"number\" name=\"ageLimit\" th:value=\"${movie.ageLimit}\">\r\n    <br>\r\n    <label>Enter Movie Genre</label>\r\n    <input type=\"number\" name=\"genre\">\r\n    <br>\r\n    <input type=\"submit\" value=\"update movie\"></type>\r\n\r\n</form>\r\n\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/updateMovie.html	(revision a07af45fe48a1f19361915f436f25ba65ff12a76)
++++ src/main/resources/templates/updateMovie.html	(date 1602854410009)
+@@ -3,10 +3,10 @@
+ <head>
+     <meta charset="UTF-8">
+     <title>Update Movie</title>
+-    <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
++    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
+ </head>
+ <body>
+-
++<div th:replace="menu :: menu_template"></div>
+ <h1>Update Movie</h1>
+ <form th:action="@{'/updateMovie/'+${movie.movieId}}" method="post">
+     <label>Movie ID</label>
+@@ -30,6 +30,6 @@
+     <input type="submit" value="update movie"></type>
+ 
+ </form>
+-
++<div th:insert="footer :: footer_template"></div>
+ </body>
+ </html>
+\ No newline at end of file
