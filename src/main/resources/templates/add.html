@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Add Movie</title>
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
-
+<div th:replace="menu :: menu_template"></div>
+<div class="center_subpage_items">
 <h1>Add Another Movie</h1>
 <form action = "/add" method="post">
-    <label>Enter Movie Title</label>
-    <input type="text" name="title">
-    <br>
-        <label>Enter Description</label>
-        <input type="text" name="description">
-    <br>
-        <label>Enter Movie Duration</label>
-        <input type="time" step="0" name="duration">
-    <br>
-        <label>Enter Movie Age Limit</label>
-        <input type="number" name="ageLimit">
-    <br>
-    <label>Enter Movie Genre</label>
-    <input type="number" name="genre">
-    <br>
-    <input type="submit" value="add new movie"></type>
+    <div><label>Enter Movie Title</label><br>
+    <input type="text" name="title" placeholder="- nothing added -" style="text-align: center"></div>
+        <div><label>Enter Description</label><br>
+        <input type="text" name="description" placeholder="- nothing added -" style="text-align: center"></div>
+            <div><label>Enter Movie Duration</label><br>
+            <input type="time" step="1" name="duration" placeholder="- nothing added -" style="text-align: center"></div>
+                <div><label>Enter Movie Age Limit</label><br>
+                <input type="number" name="ageLimit" placeholder="- nothing added -" style="text-align: center"></div>
+                    <div><label>Enter Movie Genre</label><br>
+                    <input type="number" name="genre" placeholder="- nothing added -" style="text-align: center"></div><br>
 
+    <div><input type="submit" value="Submit"></type></div><br>
 </form>
-
+</div>
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>

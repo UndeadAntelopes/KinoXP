@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Action Succeeded</title>
-    <!-- <link rel="stylesheet" type="text/css" href="src/main/resources/static/styles.css" th:href="@{/styles.css}" />
-    <link rel="stylesheet" type="text/css" href="src/main/resources/static/TableCSS.css" th:href="@{/tableCSS.css}" /> -->
-    <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
-
+<div th:replace="menu :: menu_template"></div>
 <h1>Your Movie was successfully added to the database</h1>
 <form action="/add" method="post">
     <input type="submit" value="Next">
 </form>
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>

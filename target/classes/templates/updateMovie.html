@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Movie</title>
-    <link rel="stylesheet" href="layout.css" th:href="@{/layout.css}">
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
-
+<div th:replace="menu :: menu_template"></div>
 <h1>Update Movie</h1>
 <form th:action="@{'/updateMovie/'+${movie.movieId}}" method="post">
     <label>Movie ID</label>
@@ -30,6 +30,6 @@
     <input type="submit" value="update movie"></type>
 
 </form>
-
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>

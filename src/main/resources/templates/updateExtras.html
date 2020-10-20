@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Update Extras</title>
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
-
+<div th:replace="menu :: menu_template"></div>
 <h1>Update Extras</h1>
 <form th:action="@{'/updateExtras/'+${extras.id}}" method="post">
 
@@ -23,6 +24,6 @@
         <br>
         <input type="submit" value="Update Extras"></type>
 </form>
-
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>
