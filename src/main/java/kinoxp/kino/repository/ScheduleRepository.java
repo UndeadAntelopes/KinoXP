@@ -27,11 +27,11 @@ public class ScheduleRepository {
         return template.query(query, ticketsForSchedule, scheduleId);
     }
     public void changeNumberOfTakenSeats(Ticket ticket){
-        String sql = "SELECT taken_seat FROM schedule WHERE schedule_id = ?;";
-        RowMapper<Integer> rowMapper= new BeanPropertyRowMapper<>(Integer.class);
-        Integer seats = template.queryForObject(sql, rowMapper, ticket.getScheduleId());
+        String sql = "SELECT * FROM schedule WHERE schedule_id = ?;";
+        RowMapper<Schedule> rowMapper= new BeanPropertyRowMapper<>(Schedule.class);
+        Schedule schedule = template.queryForObject(sql, rowMapper, ticket.getScheduleId());
         sql = "UPDATE schedule SET taken_seat =? WHERE schedule_id = ?;";
-        template.update(sql, seats + ticket.getAmount(), ticket.getScheduleId());
+        template.update(sql, schedule.getTakenSeats() + ticket.getAmount(), ticket.getScheduleId());
     }
 
 
