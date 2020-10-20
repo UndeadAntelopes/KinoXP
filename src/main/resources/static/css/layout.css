@@ -28,7 +28,6 @@ body{
     position: center;
     object-position: center;
     alignment: center;
-    object-position: center;
     background-color: #1a0034;
     padding-left: 18%;
     padding-right: 18%;
@@ -52,8 +51,52 @@ body{
 
 .menu_item{
     background-color: #c2b4ff;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: 60px;
-    margin-right: 60px;
+    width: 150px;
+    alignment: center;
+    position: center;
+    object-position: center;
+    text-align: center;
+    border: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.center_menu_buttons{
+    position: center;
+    object-position: center;
+    width: fit-content;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-left: auto;
+}
+
+.center_subpage_items{
+    position: center;
+    alignment: center;
+    align-items: center;
+    width: max-content;
+    object-position: center;
+    margin-left: 41%;
+    background-color: transparent;
+
+}
+
+form{
+    position: center;
+    alignment: center;
+    align-items: center;
+    text-align: center;
+    width: fit-content;
+    margin-top:10%;
+    margin-left: 10%;
+}
+
+input{
+    width: 200px;
+}
+
+h1{
+    position: center;
+    alignment: center;
+    text-align: center;
 }
