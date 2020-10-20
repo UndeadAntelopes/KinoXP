@@ -49,16 +49,16 @@ public class MovieRepository {
     }
 
     public List<Movie> fetchCurrentMovies (String scheduleIds){
+        if (scheduleIds.isEmpty()) {
+            return null;
+        }
+
         String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end, cinema_id " +
         "FROM movies " +
         "JOIN genres ON genres.genres_id = movies.genres_id " +
         "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id " +
-        "JOIN schedule ON movies_has_schedule.schedule_schedule_id = schedule.schedule_id ";
-        if (!scheduleIds.isEmpty()) {
-            sql += "WHERE schedule_schedule_id IN ( "+ scheduleIds +")";
-        }
-        //Incldue this for good form :)
-        sql += ";";
+        "JOIN schedule ON movies_has_schedule.schedule_schedule_id = schedule.schedule_id " +
+                "WHERE schedule_schedule_id IN ( "+ scheduleIds +");";
         RowMapper<Movie> rowMapper = new BeanPropertyRowMapper<>(Movie.class);
         return template.query(sql, rowMapper);
 

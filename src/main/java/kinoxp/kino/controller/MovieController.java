@@ -29,6 +29,11 @@ public class MovieController {
     @GetMapping("/movieList")
     public String displayAllMovies(Model model) {
         ArrayList<Movie> movies = movieService.fetchCurrentMovies();
+        //If there are no movies currently showing, just display
+        //an empty list.
+        if (movies == null) {
+            movies = new ArrayList<>();
+        }
         List<Movie> oldMovies = movieService.fetchAll();
 
         model.addAttribute("movies", movies);
