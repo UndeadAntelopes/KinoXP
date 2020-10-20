@@ -1,4 +1,5 @@
 body{
+    font-family: Bahnschrift;
     background-color: #c2b4ff;
     margin-left: 0px;
     margin-right: 0px;
@@ -11,16 +12,16 @@ body{
 .cinema{
     position: center;
     alignment: center;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 33%;
     margin-top: 4%
 }
 
 .footer{
     position: center;
     alignment: center;
-    margin-left: 30%;
-    margin-right: 30%;
+    text-align: center;
+    width: fit-content;
+    margin-left: 36%;
     margin-top: 5%;
 }
 
@@ -41,15 +42,8 @@ body{
     border-top: 0px;
 }
 
-.logout{
-    background-color: #c2b4ff;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
 .menu_item{
+    font-family: Bahnschrift;
     background-color: #c2b4ff;
     width: 150px;
     alignment: center;
@@ -65,18 +59,20 @@ body{
     position: center;
     object-position: center;
     width: fit-content;
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 19%;
 }
 
 .center_subpage_items{
     position: center;
     alignment: center;
     align-items: center;
-    width: max-content;
+    width: fit-content;
     object-position: center;
-    margin-left: 41%;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-left: 43%;
     background-color: transparent;
 
 }
@@ -93,10 +89,55 @@ form{
 
 input{
     width: 200px;
+    border-radius: 10px;
+    font-family: Bahnschrift;
 }
 
 h1{
     position: center;
     alignment: center;
     text-align: center;
+    font-family: Bahnschrift;
+}
+
+.mother_fucker{
+    background-color: #1a0034;
+    text-decoration-color: white;
+    color: white;
+}
+
+table{
+    /* border-collapse: collapse; */
+    border: 1px solid black;
+    border-radius: 10px!important;
+    width: max-content;
+    margin-let: auto;
+    position: center;
+    alignment: center;
+    text-align: center;
+}
+
+.table_design{
+    position: center;
+    alignment: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    margin-left: 17%;
+}
+
+th{
+    background-color: #1a0034;
+    border-radius: 10px;
+    color: white;
+    border: 1px transparent;
+    text-align: center;
+    padding: 2px;
+}
+
+td{
+    border-radius: 10px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 2px;
 }
