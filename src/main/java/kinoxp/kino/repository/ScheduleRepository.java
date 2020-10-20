@@ -30,8 +30,16 @@ public class ScheduleRepository {
         String sql = "SELECT * FROM schedule WHERE schedule_id = ?;";
         RowMapper<Schedule> rowMapper= new BeanPropertyRowMapper<>(Schedule.class);
         Schedule schedule = template.queryForObject(sql, rowMapper, ticket.getScheduleId());
+        int seats = schedule.getTaken_seat() + ticket.getAmount();
         sql = "UPDATE schedule SET taken_seat =? WHERE schedule_id = ?;";
-        template.update(sql, schedule.getTakenSeats() + ticket.getAmount(), ticket.getScheduleId());
+        template.update(sql, seats, ticket.getScheduleId());
+    }
+
+    public Schedule findScheduleById(int id) {
+        String sql = "SELECT * " +
+                "FROM schedule WHERE schedule_id = ?"; //ask for confirmation
+        RowMapper<Schedule> rowMapper = new BeanPropertyRowMapper<>(Schedule.class);
+        return template.queryForObject(sql, rowMapper, id);
     }
 
 

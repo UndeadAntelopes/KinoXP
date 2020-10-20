@@ -84,5 +84,11 @@ public class MovieRepository {
         String sql = "INSERT INTO ticket(name, amount, movie_id, schedule_id) VALUES(?,?,?,?);" ;
         template.update(sql, ticket.getName(),ticket.getAmount(), ticket.getMovieId(), ticket.getScheduleId());
     }
+    public Ticket findTicketById(int id) {
+        String sql = "SELECT * " +
+                "FROM ticket WHERE ticket_id = ?"; //ask for confirmation
+        RowMapper<Ticket> rowMapper = new BeanPropertyRowMapper<>(Ticket.class);
+        return template.queryForObject(sql, rowMapper, id);
+    }
 
 }

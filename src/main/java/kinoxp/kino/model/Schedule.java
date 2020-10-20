@@ -10,10 +10,10 @@ public class Schedule {
     private String start;
     private String end;
     private int roomId;
-    private int takenSeats;
+    private int taken_seat;
     private int availableSeats;
 
-    public Schedule(int scheduleId, String start, String end, int roomId, int takenSeats) {
+    public Schedule(int scheduleId, String start, String end, int roomId, int taken_seat) {
         this.scheduleId = scheduleId;
         this.start = start;
         this.end = end;
@@ -23,7 +23,7 @@ public class Schedule {
         }else {
             this.availableSeats = 400;
         }
-        this.takenSeats = takenSeats;
+        this.taken_seat = taken_seat;
     }
 
     public Schedule() {
@@ -74,11 +74,11 @@ public class Schedule {
         }
     }
 
-    public int getTakenSeats() {
-        return takenSeats;
+    public int getTaken_seat() {
+        return taken_seat;
     }
 
-    public void setTakenSeats(int takenSeats) {
-        this.takenSeats = takenSeats;
+    public void setTaken_seat(int taken_seat) {
+        this.taken_seat = taken_seat;
     }
 }
