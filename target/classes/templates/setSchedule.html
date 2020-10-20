@@ -1,26 +1,29 @@
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Add Schedule</title>
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
+<div th:replace="menu :: menu_template"></div>
+
+<div class="center_subpage_items">
 <h1>Add Schedule</h1>
 <form action = "/setSchedule" method="post">
-    <label>Enter start time</label>
+    <div><label>Enter start time</label><br>
     <input type="datetime-local" name="start">
-    <br>
-    <label>Enter end time</label>
+    <br></div>
+    <div><label>Enter end time</label><br>
     <input type="datetime-local" name="end">
-    <br>
-
-    <label>Enter cinema</label>
+    <br></div>
+    <div><label>Enter cinema</label><br>
     <select id="cinemaId" name="cinemaId">
         <option value="1">Big Hall</option>
         <option value="2">Small Hall</option>
     </select>
-    <br>
-
-    <label>Assign movie to schedule</label>
+    <br></div>
+    <div><label>Assign movie to schedule</label><br>
     <select id="movieId" name="movieId">
     <option
             th:each="movieId : ${movies}"
@@ -29,9 +32,10 @@
             th:selected="${movieId.movieId==1}">
     </option>
     </select>
-    <br>
-
-    <input type="submit" value="Add new showing">
+    <br><br></div>
+    <div><input class="mother_fucker" type="submit" value="Add new showing"></div>
 </form>
+</div>
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>

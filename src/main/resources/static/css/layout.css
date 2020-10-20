@@ -87,7 +87,7 @@ form{
     margin-left: 10%;
 }
 
-input{
+input, select{
     width: 200px;
     border-radius: 10px;
     font-family: Bahnschrift;
