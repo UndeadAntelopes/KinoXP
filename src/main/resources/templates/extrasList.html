@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>We do be testing</title>
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
+<div th:replace="menu :: menu_template"></div>
 <h1>testing</h1>
 <h2></h2>
 <a th:href="@{/addExtras}"><button>ADD</button></a>
@@ -38,5 +40,6 @@
     </tr>
     </tbody>
 </table>
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>

@@ -149,7 +149,7 @@ CREATE TABLE `schedule` (
 
 LOCK TABLES `schedule` WRITE;
 /*!40000 ALTER TABLE `schedule` DISABLE KEYS */;
-INSERT INTO `schedule` VALUES (1,'2020-10-15 08:00:00','2020-10-15 09:25:00',1),(2,'2020-10-15 10:00:00','2020-10-15 10:50:00',1),(3,'2020-10-15 11:00:00','2020-10-15 12:45:00',1),(4,'2020-10-15 13:00:00','2020-10-15 14:00:00',2),(5,'2020-10-15 14:15:00','2020-10-15 15:30:00',3);
+INSERT INTO `schedule` VALUES (1,'2020-12-15 08:00:00','2020-12-15 09:25:00',1),(2,'2020-12-15 10:00:00','2020-12-15 10:50:00',1),(3,'2020-10-15 11:00:00','2020-10-15 12:45:00',1),(4,'2020-10-15 13:00:00','2020-10-15 14:00:00',2),(5,'2020-12-15 14:15:00','2020-12-15 15:30:00',3);
 /*!40000 ALTER TABLE `schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,8 +170,8 @@ CREATE TABLE `ticket` (
   UNIQUE KEY `ticket_id_UNIQUE` (`ticket_id`),
   KEY `movie_id_idx` (`movie_id`),
   KEY `schedule_id_idx` (`schedule_id`),
-  CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`),
-  CONSTRAINT `schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`)
+  CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE,
+  CONSTRAINT `schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

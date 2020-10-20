@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Add Extras</title>
+    <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
-
+<div th:replace="menu :: menu_template"></div>
 <h1>Add Extras</h1>
 <form action = "/addExtras" method="post">
     <label>Extras Name</label>
@@ -20,6 +21,6 @@
     <input type="submit" value="Add Extras"></type>
 
 </form>
-
+<div th:insert="footer :: footer_template"></div>
 </body>
 </html>
