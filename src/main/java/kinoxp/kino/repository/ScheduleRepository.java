@@ -1,5 +1,6 @@
 package kinoxp.kino.repository;
 
+import kinoxp.kino.model.Movie;
 import kinoxp.kino.model.Schedule;
 import kinoxp.kino.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,13 @@ public class ScheduleRepository {
         RowMapper<Ticket> ticketsForSchedule = new BeanPropertyRowMapper<>(Ticket.class);
         //Remember to change this
         return template.query(query, ticketsForSchedule, scheduleId);
+    }
+    public void changeNumberOfTakenSeats(Ticket ticket){
+        String sql = "SELECT taken_seat FROM schedule WHERE schedule_id = ?;";
+        RowMapper<Integer> rowMapper= new BeanPropertyRowMapper<>(Integer.class);
+        Integer seats = template.queryForObject(sql, rowMapper, ticket.getScheduleId());
+        sql = "UPDATE schedule SET taken_seat =? WHERE schedule_id = ?;";
+        template.update(sql, seats + ticket.getAmount(), ticket.getScheduleId());
     }
 
 

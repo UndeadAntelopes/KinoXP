@@ -2,6 +2,7 @@ package kinoxp.kino.repository;
 
 import kinoxp.kino.model.Movie;
 import kinoxp.kino.model.Schedule;
+import kinoxp.kino.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -77,6 +78,11 @@ public class MovieRepository {
                 "FROM kinoxp.Movies WHERE movie_id = ?"; //ask for confirmation
         RowMapper<Movie> rowMapper= new BeanPropertyRowMapper<>(Movie.class);
         return template.queryForObject(sql, rowMapper, id);
+    }
+
+    public void saveTicket(Ticket ticket){
+        String sql = "INSERT INTO ticket(name, amount, movie_id, schedule_id) VALUES(?,?,?,?);" ;
+        template.update(sql, ticket.getName(),ticket.getAmount(), ticket.getMovieId(), ticket.getScheduleId());
     }
 
 }

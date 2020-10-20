@@ -20,8 +20,18 @@
         <td th:text="${schedule.start}"></td>
         <td th:text="${schedule.end}"></td>
         <td th:text="${schedule.availableSeats - schedule.takenSeats}"></td>
-        <td><input type="number" name="numerOfSeats" min="0" max="${schedule.availableSeats - schedule.takenSeats}" id="seats">
-            <a th:href="@{'/time/'+${}}"><button>Reserve</button></a></td>
+        <td>
+            <form th:action="@{/time}" method="post" th:object="${Ticket}">
+                <label>Name</label>
+                <input type="text" name="name">
+                <label>Amount of the tickets</label>
+                <input type="number" name="amount" min="0" th:max="${schedule.availableSeats - schedule.takenSeats}">
+                <input type="text" name="movieId" th:value="${movie.movieId}" disabled>
+                <input type="text" name="scheduleId" th:value="${schedule.scheduleId}" disabled>
+                <input type="submit" value="Reserve">
+            </form>
+        </td>
+
     </tr>
     <tr>
         <th>Movie Start</th>
