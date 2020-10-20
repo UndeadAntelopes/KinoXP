@@ -22,6 +22,7 @@ public class MovieService {
     public List<Movie> fetchAll() {
         return movieRepository.fetchAll();
     }
+
     public ArrayList<Schedule> allSchedules() {
         //Retrieve all schedules from the database
         ArrayList<Schedule> schedules = (ArrayList<Schedule>) movieRepository.fetchSchedule();
@@ -60,18 +61,24 @@ public class MovieService {
 
             //Loop to filter schedules for only currently showing movies
             int currentMonth = today.getMonthValue();
+            int currentDate = today.getDayOfMonth();
+
             for (int i = 0; i < schedules.size(); ++i) {
                 //Isolate month from DateTime string
                 int month = Integer.parseInt(schedules.get(i).getStart().substring(5, 7));
+                //Isolate the date from DateTime string
+                int date = Integer.parseInt(schedules.get(i).getStart().substring(8, 10));
 
-                //
-                if (!(month >= currentMonth && month < (currentMonth + 3))) {
-                    schedules.remove(i);
+                //Remove a schedule from the list if it appears before the current date, or
+                //more than 3 months from now
+                if ((month <= currentMonth || month > (currentMonth + 3))) {
+                    if (date < currentDate) {
+                        schedules.remove(i);
+                        --i;
+                    }
                 }
             }
             return schedules;
-
-
     }
 
     public void updateMovie(Movie movie) {movieRepository.updateMovie(movie);}

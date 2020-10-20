@@ -28,23 +28,23 @@ public class MovieController {
 
     @GetMapping("/movieList")
     public String displayAllMovies(Model model) {
-        List<Movie> movies = movieService.fetchAll();
-
-        model.addAttribute("movies", movies);
-        return "MovieList.html";
-    }
-
-    @GetMapping("/currentlyShowing")
-    public String displayCurrentMovies(Model model) {
         ArrayList<Movie> movies = movieService.fetchCurrentMovies();
+        List<Movie> oldMovies = movieService.fetchAll();
+
         model.addAttribute("movies", movies);
+        model.addAttribute("oldMovies", oldMovies);
         return "MovieList.html";
     }
-    @GetMapping("/currentlyShowing/{ordered}")
+
+    @GetMapping("/currentlyShowing/ordered")
     public String displayOrderedCurrentMovies(Model model) {
         ArrayList<Movie> unorderedMovies = movieService.fetchCurrentMovies();
         ArrayList<Movie> movies = movieService.sortByGenre(unorderedMovies);
         model.addAttribute("movies", movies);
+
+        //Show oldMovies (unsorted) for consistency
+        List<Movie> oldMovies = movieService.fetchAll();
+        model.addAttribute("oldMovies", oldMovies);
         return "MovieList.html";
     }
     
