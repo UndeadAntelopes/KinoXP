@@ -9,16 +9,32 @@ public class Schedule {
     private int scheduleId;
     private String start;
     private String end;
-    private int cinemaId;
+    private int roomId;
+    private int taken_seat;
+    private int availableSeats;
 
-    public Schedule(int scheduleId, String start, String end, int cinemaId) {
+    public Schedule(int scheduleId, String start, String end, int roomId, int taken_seat) {
         this.scheduleId = scheduleId;
         this.start = start;
         this.end = end;
-        this.cinemaId = cinemaId;
+        this.roomId = roomId;
+        if (roomId == 1){
+            this.availableSeats = 240;
+        }else {
+            this.availableSeats = 400;
+        }
+        this.taken_seat = taken_seat;
     }
 
     public Schedule() {
+    }
+
+    public int getAvailableSeats() {
+        return availableSeats;
+    }
+
+    public void setAvailableSeats(int availableSeats) {
+        this.availableSeats = availableSeats;
     }
 
     public int getScheduleId() {
@@ -45,21 +61,24 @@ public class Schedule {
         this.end = end;
     }
 
-    public int getCinemaId() {
-        return cinemaId;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setCinemaId(int cinemaId) {
-        this.cinemaId = cinemaId;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
+        if (roomId == 1){
+            this.availableSeats = 240;
+        }else {
+            this.availableSeats = 400;
+        }
     }
 
-    @Override
-    public String toString() {
-        return "Schedule{" +
-                "scheduleId=" + scheduleId +
-                ", start='" + start + '\'' +
-                ", end='" + end + '\'' +
-                ", cinemaId=" + cinemaId +
-                '}';
+    public int getTaken_seat() {
+        return taken_seat;
+    }
+
+    public void setTaken_seat(int taken_seat) {
+        this.taken_seat = taken_seat;
     }
 }

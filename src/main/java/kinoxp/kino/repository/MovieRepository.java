@@ -2,6 +2,7 @@ package kinoxp.kino.repository;
 
 import kinoxp.kino.model.Movie;
 import kinoxp.kino.model.Schedule;
+import kinoxp.kino.model.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -48,13 +49,21 @@ public class MovieRepository {
 
         return template.query(query, rowMapper);
     }
+    public List<Schedule> fetchSchedule(int movie_id) {
+        String query = "SELECT * FROM kinoxp.schedule " +
+                "JOIN movies_has_schedule ON schedule.schedule_id = movies_has_schedule.schedule_schedule_id " +
+                "JOIN movies ON movies_has_schedule.movies_movie_id = movies.movie_id " +
+                "WHERE movies.movie_id = ? ;";
+        RowMapper<Schedule> rowMapper = new BeanPropertyRowMapper<>(Schedule.class);
+        return template.query(query, rowMapper, movie_id);
+    }
 
     public List<Movie> fetchCurrentMovies (String scheduleIds){
         if (scheduleIds.isEmpty()) {
             return null;
         }
 
-        String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end, cinema_id " +
+        String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end, room_id " +
         "FROM movies " +
         "JOIN genres ON genres.genres_id = movies.genres_id " +
         "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id " +
@@ -72,9 +81,20 @@ public class MovieRepository {
         return template.queryForObject(sql, rowMapper, id);
     }
 
+    public void saveTicket(Ticket ticket){
+        String sql = "INSERT INTO ticket(name, amount, movie_id, schedule_id) VALUES(?,?,?,?);" ;
+        template.update(sql, ticket.getName(),ticket.getAmount(), ticket.getMovieId(), ticket.getScheduleId());
+    }
+    public Ticket findTicketById(int id) {
+        String sql = "SELECT * " +
+                "FROM ticket WHERE ticket_id = ?"; //ask for confirmation
+        RowMapper<Ticket> rowMapper = new BeanPropertyRowMapper<>(Ticket.class);
+        return template.queryForObject(sql, rowMapper, id);
+    }
+
     public void setSchedule(Schedule s) {
-        String sql = "INSERT INTO schedule(start, end, cinema_id) VALUES (?, ?, ?)";
-        template.update(sql, s.getStart(), s.getEnd(), s.getCinemaId());
+        String sql = "INSERT INTO schedule(start, end, room_id) VALUES (?, ?, ?)";
+        template.update(sql, s.getStart(), s.getEnd(), s.getRoomId());
     }
 
     public void assignMovieToSchedule(int movieId, int scheduleId) {
