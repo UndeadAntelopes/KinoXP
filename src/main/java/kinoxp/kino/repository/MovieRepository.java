@@ -57,7 +57,7 @@ public class MovieRepository {
     }
 
     public List<Movie> fetchCurrentMovies (String scheduleIds){
-        String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end, cinema_id " +
+        String sql = "SELECT movie_id, title, description, duration, age_limit, genre, start, end, room_id " +
         "FROM movies " +
         "JOIN genres ON genres.genres_id = movies.genres_id " +
         "JOIN movies_has_schedule ON movies.movie_id = movies_has_schedule.movies_movie_id " +

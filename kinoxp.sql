@@ -83,7 +83,7 @@ CREATE TABLE `movies` (
   PRIMARY KEY (`movie_id`),
   UNIQUE KEY `Movie_ID_UNIQUE` (`movie_id`),
   KEY `fk_movies_genres1_idx` (`genres_id`),
-  CONSTRAINT `fk_movies_genres1` FOREIGN KEY (`genres_id`) REFERENCES `genres` (`genres_id`) ON DELETE CASCADE
+  CONSTRAINT `fk_movies_genres1` FOREIGN KEY (`genres_id`) REFERENCES `genres` (`genres_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -172,8 +172,8 @@ CREATE TABLE `ticket` (
   UNIQUE KEY `ticket_id_UNIQUE` (`ticket_id`),
   KEY `movie_id_idx` (`movie_id`),
   KEY `schedule_id_idx` (`schedule_id`),
-  CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`),
-  CONSTRAINT `schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`)
+  CONSTRAINT `movie_id` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`movie_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `schedule_id` FOREIGN KEY (`schedule_id`) REFERENCES `schedule` (`schedule_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
