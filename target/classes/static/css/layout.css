@@ -13,6 +13,7 @@ body{
     position: center;
     alignment: center;
     margin-left: 33%;
+    margin-right: 33%;
     margin-top: 4%
 }
 
@@ -26,42 +27,45 @@ body{
 }
 
 .flex-container{
-    position: center;
+    position: fixed;
     object-position: center;
     alignment: center;
+    width: 100%;
     background-color: #1a0034;
-    padding-left: 18%;
-    padding-right: 18%;
+    padding-left: 11.32%;
+    padding-right: 11.32%;
     padding-top: 2%;
     padding-bottom: 2%;
-    margin-left: 0px;
-    margin-right: 0px;
+    margin-left: 0%;
+    margin-right: 0%;
     margin-top: 0px;
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
 }
 
+
 .menu_item{
-    font-family: Bahnschrift;
     background-color: #c2b4ff;
     width: 150px;
+    border-radius: 5px;
     alignment: center;
     position: center;
     object-position: center;
     text-align: center;
     border: 0;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 .center_menu_buttons{
     position: center;
     object-position: center;
     width: fit-content;
-    padding-left: 0px;
-    padding-right: 0px;
     margin-left: 19%;
+    margin-right: 19%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .center_subpage_items{
@@ -90,14 +94,12 @@ form{
 input, select{
     width: 200px;
     border-radius: 10px;
-    font-family: Bahnschrift;
 }
 
 h1{
     position: center;
     alignment: center;
     text-align: center;
-    font-family: Bahnschrift;
 }
 
 .mother_fucker{
@@ -111,7 +113,7 @@ table{
     border: 1px solid black;
     border-radius: 10px!important;
     width: max-content;
-    margin-let: auto;
+    margin-left: auto;
     position: center;
     alignment: center;
     text-align: center;

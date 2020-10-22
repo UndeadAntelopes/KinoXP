@@ -6,8 +6,11 @@
     <link rel="stylesheet" href="layout.css" th:href="@{css/layout.css}">
 </head>
 <body>
-<div th:replace="menu :: menu_template"></div>
-<div class="center_subpage_items">
+<div th:replace="menu :: menu_template"></div></br>
+</br>
+<div class="center_subpage_items"></br>
+    </br>
+    </br>
 <h1>Add Another Movie</h1>
 <form action = "/add" method="post">
     <div><label>Enter Movie Title</label><br>
@@ -24,6 +27,7 @@
     <div><input class="mother_fucker" type="submit" value="Submit"></type></div><br>
 </form>
 </div>
+</br>
 <div th:insert="footer :: footer_template"></div>
 </body>
 </html>
